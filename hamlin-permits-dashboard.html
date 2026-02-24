@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamlin Area Development Tracker — Winter Garden, FL</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --border: #e2e5e9;
+    --text: #1a1d21;
+    --text-secondary: #5e6369;
+    --accent: #2563eb;
+    --accent-light: #eff4ff;
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --purple: #7c3aed;
+    --purple-bg: #f5f3ff;
+    --teal: #0d9488;
+    --teal-bg: #f0fdfa;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header h1 span { color: var(--accent); }
+  .header-meta { font-size: 13px; color: var(--text-secondary); }
+  .header-meta strong { color: var(--text); }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 24px; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .stat-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-secondary); font-weight: 600; margin-bottom: 6px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  .stat-card .sub { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+  .controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+  .filter-btn { padding: 7px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); font-size: 13px; cursor: pointer; font-weight: 500; transition: all 0.15s; color: var(--text-secondary); }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .search-input { padding: 7px 14px; border-radius: 6px; border: 1px solid var(--border); font-size: 13px; width: 260px; outline: none; }
+  .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+
+  .section-title { font-size: 17px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title .count { background: var(--accent-light); color: var(--accent); font-size: 12px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; margin-bottom: 36px; }
+
+  .permit-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: box-shadow 0.15s; cursor: default; position: relative; }
+  .permit-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .permit-card .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .permit-card .project-name { font-size: 15px; font-weight: 700; flex: 1; padding-right: 12px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 5px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.3px; }
+  .badge-construction { background: var(--amber-bg); color: var(--amber); }
+  .badge-approved { background: var(--green-bg); color: var(--green); }
+  .badge-proposed { background: var(--purple-bg); color: var(--purple); }
+  .badge-open { background: var(--teal-bg); color: var(--teal); }
+  .badge-filed { background: var(--accent-light); color: var(--accent); }
+
+  .card-details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; font-size: 13px; }
+  .card-details dt { color: var(--text-secondary); font-weight: 500; }
+  .card-details dd { font-weight: 600; }
+  .card-desc { margin-top: 12px; font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border); padding-top: 12px; }
+
+  .type-tag { position: absolute; top: 0; right: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 0 0 6px 6px; }
+  .type-commercial { background: #dbeafe; color: #1e40af; }
+  .type-residential { background: #dcfce7; color: #166534; }
+  .type-infrastructure { background: #fef3c7; color: #92400e; }
+  .type-mixed { background: #ede9fe; color: #5b21b6; }
+
+  .resources { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 28px; }
+  .resources h3 { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .resource-link { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .resource-link:hover { border-color: var(--accent); background: var(--accent-light); }
+  .resource-link .icon { font-size: 18px; }
+  .resource-link .rl-desc { font-size: 11px; color: var(--text-secondary); font-weight: 400; }
+
+  .timeline { position: relative; padding-left: 28px; margin-bottom: 36px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 20px; }
+  .tl-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--accent); background: var(--surface); }
+  .tl-item.done::before { background: var(--green); border-color: var(--green); }
+  .tl-date { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 2px; }
+  .tl-title { font-size: 14px; font-weight: 600; }
+  .tl-desc { font-size: 13px; color: var(--text-secondary); }
+
+  .footer { text-align: center; padding: 32px 24px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border); margin-top: 20px; }
+
+  .empty-state { text-align: center; padding: 48px 24px; color: var(--text-secondary); font-size: 14px; }
+
+  @media (max-width: 640px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .card-details { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .search-input { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <h1>Hamlin Area <span>Development Tracker</span></h1>
+      <div class="header-meta">Winter Garden &amp; Horizon West, FL &mdash; Last updated <strong id="lastUpdated"></strong></div>
+    </div>
+    <div class="header-meta" style="text-align:right">
+      <div>Data compiled from Orange County, City of Winter Garden,</div>
+      <div>GrowthSpotter, and public records</div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="app"></div>
+
+<script>
+const PROJECTS = [
+  // ─── COMMERCIAL / RETAIL ───
+  {
+    name: "Lowe's Home Improvement",
+    type: "commercial",
+    status: "filed",
+    size: "134,148 sq ft",
+    location: "Hamlin Groves Trail (north of Walmart)",
+    developer: "Lowe's / Boyd Development",
+    timeline: "Plans filed Aug 2025",
+    description: "Big-box home improvement store on a vacant 25-acre site. Site plan also includes a future 40,000 sq ft retail building and three commercial outparcels, one approved for VyStar Credit Union.",
+    category: "Retail"
+  },
+  {
+    name: "TJ Maxx",
+    type: "commercial",
+    status: "construction",
+    size: "25,000 sq ft",
+    location: "Hamlin Groves Trail (south of Publix, next to Urban Air)",
+    developer: "Hamlin Retail Partners II / Boyd Development",
+    timeline: "Under construction — Environmental permit issued Apr 2025",
+    description: "Off-price retail store. Part of the 'Hamlin South of Publix' retail project. Construction has started; opening date TBD.",
+    category: "Retail"
+  },
+  {
+    name: "Life Time Athletic Club",
+    type: "commercial",
+    status: "proposed",
+    size: "80,000 sq ft",
+    location: "New Independence Pkwy & SR 429 (76 acres)",
+    developer: "Life Time / Scott T. Boyd",
+    timeline: "Pre-application filed Jun 2025",
+    description: "Sports and fitness facility with indoor athletic club, two outdoor pool areas, and eight sports courts including weightlifting and cardio equipment.",
+    category: "Fitness / Recreation"
+  },
+  {
+    name: "Dutch Bros Coffee",
+    type: "commercial",
+    status: "construction",
+    size: "950 sq ft",
+    location: "5215 Hamlin Groves Trail",
+    developer: "Boyd Development",
+    timeline: "Construction started Oct 2025 — Est. completion May 2026",
+    description: "Drive-thru coffee shop serving coffee, matcha, energy drinks, and seasonal beverages.",
+    category: "Restaurant / Cafe"
+  },
+  {
+    name: "Tiki Docks Restaurant",
+    type: "commercial",
+    status: "proposed",
+    size: "TBD",
+    location: "Adjacent to PopStroke, Hamlin Town Center lakefront",
+    developer: "TBD",
+    timeline: "Expected to break ground early 2026",
+    description: "Waterfront dining concept replacing the previously planned Don the Beachcomber location, next to PopStroke on Lake Hancock.",
+    category: "Restaurant / Cafe"
+  },
+  {
+    name: "Chipotle Mexican Grill",
+    type: "commercial",
+    status: "proposed",
+    size: "TBD",
+    location: "15970 New Independence Parkway",
+    developer: "TBD",
+    timeline: "Plans proposed",
+    description: "Fast-casual restaurant with drive-thru lane (Chipotlane).",
+    category: "Restaurant / Cafe"
+  },
+  {
+    name: "Outback Steakhouse",
+    type: "commercial",
+    status: "proposed",
+    size: "TBD",
+    location: "South of Walmart, Hamlin Groves Trail",
+    developer: "TBD",
+    timeline: "Plans proposed",
+    description: "Full-service steakhouse restaurant.",
+    category: "Restaurant / Cafe"
+  },
+  {
+    name: "ABC Fine Wine & Spirits",
+    type: "commercial",
+    status: "proposed",
+    size: "TBD",
+    location: "NW corner of Avalon Rd & New Independence Pkwy",
+    developer: "TBD",
+    timeline: "Plans proposed",
+    description: "Liquor store located adjacent to the proposed HCA freestanding ER.",
+    category: "Retail"
+  },
+  {
+    name: "CVS Pharmacy",
+    type: "commercial",
+    status: "filed",
+    size: "13,163 sq ft",
+    location: "Horizon West / Hamlin area",
+    developer: "CVS Health",
+    timeline: "Pre-application submitted to Orange County",
+    description: "Freestanding pharmacy with 44 parking spaces.",
+    category: "Healthcare / Pharmacy"
+  },
+  {
+    name: "HCA Freestanding Emergency Room",
+    type: "commercial",
+    status: "filed",
+    size: "TBD",
+    location: "Near Avalon Rd & New Independence Pkwy",
+    developer: "HCA Healthcare",
+    timeline: "Permits filed with Orange County",
+    description: "Standalone emergency room facility to serve the growing Horizon West community.",
+    category: "Healthcare / Pharmacy"
+  },
+  {
+    name: "9,188 SF Commercial Building",
+    type: "commercial",
+    status: "filed",
+    size: "9,188 sq ft",
+    location: "15903 New Independence Pkwy (near Hamlin Groves Trail)",
+    developer: "TBD",
+    timeline: "Development plan submitted",
+    description: "General commercial building at the northeast corner of New Independence Parkway and Hamlin Groves Trail.",
+    category: "Retail"
+  },
+  {
+    name: "VyStar Credit Union",
+    type: "commercial",
+    status: "approved",
+    size: "TBD",
+    location: "Outparcel on Lowe's site, Hamlin Groves Trail",
+    developer: "VyStar",
+    timeline: "Plans approved",
+    description: "Credit union branch on one of three outparcels within the Lowe's development site.",
+    category: "Financial Services"
+  },
+  {
+    name: "Goddard School (Daycare)",
+    type: "commercial",
+    status: "approved",
+    size: "18,128 sq ft",
+    location: "West of Avalon Rd, north of Porter Rd (Silverleaf area)",
+    developer: "Hamlin Partners at Silverleaf, LLC",
+    timeline: "Stormwater permit issued Mar 2025",
+    description: "Childcare/daycare facility with paved parking and stormwater infrastructure.",
+    category: "Education"
+  },
+  {
+    name: "Windermere Prep School (K-5 Campus)",
+    type: "commercial",
+    status: "proposed",
+    size: "TBD",
+    location: "Hamlin area",
+    developer: "Windermere Preparatory School",
+    timeline: "Pre-application request submitted",
+    description: "New K-5 elementary school campus to serve the growing Hamlin community.",
+    category: "Education"
+  },
+  {
+    name: "Lake Hancock Waterfront Boardwalk",
+    type: "infrastructure",
+    status: "proposed",
+    size: "TBD",
+    location: "South of PopStroke along Lake Hancock",
+    developer: "Boyd Development",
+    timeline: "In planning",
+    description: "Waterfront boardwalk with seating, lounge areas, and a connecting pocket park. Will be adjacent to future retail and restaurant spaces.",
+    category: "Public Space"
+  },
+  {
+    name: "Tropical Smoothie Cafe",
+    type: "commercial",
+    status: "construction",
+    size: "TBD",
+    location: "Corner of Hamlin Groves Trail & Calamondin Dr",
+    developer: "TBD",
+    timeline: "Construction underway",
+    description: "Smoothie and food cafe.",
+    category: "Restaurant / Cafe"
+  },
+
+  // ─── RECENTLY OPENED ───
+  {
+    name: "PopStroke (Tiger Woods)",
+    type: "commercial",
+    status: "open",
+    size: "1.75 acres",
+    location: "Shoreside Way & Hamlin Groves Trail",
+    developer: "PopStroke / Boyd Development",
+    timeline: "Opened 2025",
+    description: "Two 18-hole putting courses, beer garden, three bars, outdoor gaming patio, and enclosed playground.",
+    category: "Entertainment"
+  },
+  {
+    name: "Agave Bandido",
+    type: "commercial",
+    status: "open",
+    size: "TBD",
+    location: "Hamlin Town Center",
+    developer: "TBD",
+    timeline: "Opened 2025",
+    description: "Upscale Mexican-inspired restaurant with signature cocktails.",
+    category: "Restaurant / Cafe"
+  },
+  {
+    name: "Anytime Fitness",
+    type: "commercial",
+    status: "open",
+    size: "TBD",
+    location: "5724 Hamlin Groves Trail",
+    developer: "TBD",
+    timeline: "Opened 2025",
+    description: "24/7 fitness center.",
+    category: "Fitness / Recreation"
+  },
+
+  // ─── RESIDENTIAL ───
+  {
+    name: "Silverleaf (Master-Planned Community)",
+    type: "residential",
+    status: "construction",
+    size: "1,200 single-family + 1,100 multi-family units",
+    location: "Near Avalon Rd, Horizon West",
+    developer: "Meritage Homes & others",
+    timeline: "Active construction — phased through 2027+",
+    description: "Major mixed-use community with Silverleaf Reserve, Silverleaf Oaks, and Silverleaf Reserve Bungalows. Resort-style pool, cabana, playground. No CDD.",
+    category: "Residential Community"
+  },
+  {
+    name: "Hamlin Meadows",
+    type: "residential",
+    status: "construction",
+    size: "1,644 – 3,600+ sq ft homes",
+    location: "Horizon West / Hamlin area",
+    developer: "Dream Finders Homes",
+    timeline: "Active construction",
+    description: "Rear-load townhomes and single-family homes on various lot sizes.",
+    category: "Residential Community"
+  },
+  {
+    name: "Parkview at Hamlin",
+    type: "residential",
+    status: "construction",
+    size: "3-story townhomes",
+    location: "Walking distance to Hamlin Town Center",
+    developer: "Ashton Woods / DRB Homes",
+    timeline: "Active construction",
+    description: "Low-maintenance three-story townhomes within walking distance to shopping, dining, and entertainment.",
+    category: "Residential Community"
+  },
+  {
+    name: "Westhaven at Ovation (Toll Brothers)",
+    type: "residential",
+    status: "construction",
+    size: "Single-family homes",
+    location: "Horizon West / Winter Garden",
+    developer: "Toll Brothers",
+    timeline: "Active — Est. completion Summer 2026",
+    description: "Luxury single-family homes by Toll Brothers. Multiple units with estimated completion through July 2026.",
+    category: "Residential Community"
+  },
+  {
+    name: "113 Multi-Family Units (Hamlin PD)",
+    type: "residential",
+    status: "approved",
+    size: "113 units",
+    location: "Hamlin Planned Development",
+    developer: "TBD",
+    timeline: "Approved by Orange County BCC",
+    description: "Multi-family residential development within the Hamlin Planned Development area.",
+    category: "Residential Community"
+  },
+  {
+    name: "Hamlin 30 Mixed-Use",
+    type: "mixed",
+    status: "approved",
+    size: "100 units + 170,000 sq ft commercial + 26 hotel rooms",
+    location: "Schofield Road, Hamlin",
+    developer: "Boyd Development",
+    timeline: "Approved",
+    description: "Mixed-use project with multifamily residential, commercial retail/office space, and boutique hotel rooms.",
+    category: "Mixed-Use"
+  },
+
+  // ─── INFRASTRUCTURE ───
+  {
+    name: "Horizon West Regional Park (Phase 1A)",
+    type: "infrastructure",
+    status: "construction",
+    size: "200 acres (full park)",
+    location: "Adjacent to Horizon West Library",
+    developer: "Orange County",
+    timeline: "Under construction — Multi-phase opening",
+    description: "Playgrounds, picnic areas, restrooms, and large event pavilion. Full park to open in multiple phases.",
+    category: "Public Space"
+  },
+  {
+    name: "Horizon West Library",
+    type: "infrastructure",
+    status: "construction",
+    size: "20,000 sq ft",
+    location: "Next to Regional Park",
+    developer: "Orange County Library System",
+    timeline: "Under construction — Expected opening early 2026",
+    description: "Study rooms, media lab, meeting rooms, outdoor performance stage with open lawn seating.",
+    category: "Public Facility"
+  },
+  {
+    name: "New Independence Pkwy Extension",
+    type: "infrastructure",
+    status: "proposed",
+    size: "Road extension",
+    location: "Connecting Orange & Lake Counties",
+    developer: "Orange County / FDOT",
+    timeline: "Coming soon",
+    description: "Road extension to improve connectivity between the Hamlin area and western communities.",
+    category: "Transportation"
+  },
+  {
+    name: "SR-516 Toll Road",
+    type: "infrastructure",
+    status: "proposed",
+    size: "Toll road",
+    location: "Orange to Lake County corridor",
+    developer: "FDOT / CFX",
+    timeline: "Coming soon",
+    description: "New toll road to ease travel between Orange and Lake Counties, benefiting Hamlin-area commuters.",
+    category: "Transportation"
+  }
+];
+
+function render() {
+  const app = document.getElementById('app');
+  document.getElementById('lastUpdated').textContent = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+  const statusCounts = { construction: 0, approved: 0, filed: 0, proposed: 0, open: 0 };
+  PROJECTS.forEach(p => { if (statusCounts[p.status] !== undefined) statusCounts[p.status]++; });
+  const typeCounts = { commercial: 0, residential: 0, infrastructure: 0, mixed: 0 };
+  PROJECTS.forEach(p => { if (typeCounts[p.type] !== undefined) typeCounts[p.type]++; });
+
+  app.innerHTML = `
+    <div class="stats-row">
+      <div class="stat-card"><div class="label">Total Projects Tracked</div><div class="value">${PROJECTS.length}</div><div class="sub">Hamlin & Horizon West area</div></div>
+      <div class="stat-card"><div class="label">Under Construction</div><div class="value" style="color:var(--amber)">${statusCounts.construction}</div><div class="sub">Actively being built</div></div>
+      <div class="stat-card"><div class="label">Approved / Filed</div><div class="value" style="color:var(--green)">${statusCounts.approved + statusCounts.filed}</div><div class="sub">Permits approved or filed</div></div>
+      <div class="stat-card"><div class="label">Proposed</div><div class="value" style="color:var(--purple)">${statusCounts.proposed}</div><div class="sub">In planning / pre-application</div></div>
+      <div class="stat-card"><div class="label">Recently Opened</div><div class="value" style="color:var(--teal)">${statusCounts.open}</div><div class="sub">Opened in 2025</div></div>
+    </div>
+
+    <div class="controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="construction">Under Construction</button>
+      <button class="filter-btn" data-filter="approved">Approved</button>
+      <button class="filter-btn" data-filter="filed">Filed</button>
+      <button class="filter-btn" data-filter="proposed">Proposed</button>
+      <button class="filter-btn" data-filter="open">Recently Opened</button>
+      <span style="flex:1"></span>
+      <button class="filter-btn" data-type="commercial">Commercial</button>
+      <button class="filter-btn" data-type="residential">Residential</button>
+      <button class="filter-btn" data-type="infrastructure">Infrastructure</button>
+      <span style="flex:1"></span>
+      <input class="search-input" type="text" placeholder="Search projects..." id="searchInput">
+    </div>
+
+    <div id="cardsContainer"></div>
+
+    <div class="section-title" style="margin-top:36px">Development Timeline</div>
+    <div class="timeline">
+      <div class="tl-item done"><div class="tl-date">Early 2025</div><div class="tl-title">PopStroke, Agave Bandido, Anytime Fitness open</div><div class="tl-desc">First wave of Hamlin Town Center entertainment and dining venues.</div></div>
+      <div class="tl-item done"><div class="tl-date">Mar 2025</div><div class="tl-title">Goddard School stormwater permit issued</div><div class="tl-desc">18,128 sq ft daycare facility in Silverleaf area clears infrastructure hurdle.</div></div>
+      <div class="tl-item done"><div class="tl-date">Apr 2025</div><div class="tl-title">TJ Maxx environmental permit issued</div><div class="tl-desc">25,000 sq ft retail building begins construction south of Publix.</div></div>
+      <div class="tl-item done"><div class="tl-date">Jun 2025</div><div class="tl-title">Life Time Athletic files pre-application</div><div class="tl-desc">80,000 sq ft sports & fitness facility proposed near SR 429.</div></div>
+      <div class="tl-item done"><div class="tl-date">Aug 2025</div><div class="tl-title">Lowe's plans filed at Hamlin Town Center</div><div class="tl-desc">134,148 sq ft store on 25 acres north of Walmart.</div></div>
+      <div class="tl-item"><div class="tl-date">Oct 2025</div><div class="tl-title">Dutch Bros Coffee construction starts</div><div class="tl-desc">950 sq ft drive-thru at 5215 Hamlin Groves Trail.</div></div>
+      <div class="tl-item"><div class="tl-date">Early 2026</div><div class="tl-title">Horizon West Library opening</div><div class="tl-desc">20,000 sq ft library with performance stage and media lab.</div></div>
+      <div class="tl-item"><div class="tl-date">Early 2026</div><div class="tl-title">Tiki Docks breaks ground</div><div class="tl-desc">Waterfront restaurant next to PopStroke on Lake Hancock.</div></div>
+      <div class="tl-item"><div class="tl-date">May 2026</div><div class="tl-title">Dutch Bros estimated completion</div><div class="tl-desc">Coffee shop expected to open.</div></div>
+      <div class="tl-item"><div class="tl-date">Summer 2026</div><div class="tl-title">Toll Brothers homes completion</div><div class="tl-desc">Westhaven at Ovation single-family homes delivered.</div></div>
+      <div class="tl-item"><div class="tl-date">2026–2027+</div><div class="tl-title">Silverleaf phases continue</div><div class="tl-desc">1,200 single-family + 1,100 multi-family units phased through 2027+.</div></div>
+    </div>
+
+    <div class="resources">
+      <h3>Check for New Permits Yourself</h3>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">The Hamlin area straddles both City of Winter Garden and unincorporated Orange County jurisdictions. Check both portals for complete coverage.</p>
+      <div class="resource-grid">
+        <a href="https://www.cwgdn.com/291/Building" target="_blank" class="resource-link"><span class="icon">🏛️</span><div><div>City of Winter Garden — BS&A Permit Portal</div><div class="rl-desc">Search by address or permit number</div></div></a>
+        <a href="https://fasttrack.ocfl.net/OnlineServices/" target="_blank" class="resource-link"><span class="icon">🍊</span><div><div>Orange County — Fast Track Permit Search</div><div class="rl-desc">Search all permit types, inspections, contractors</div></div></a>
+        <a href="https://www.orangecountyfl.net/PlanningDevelopment/DevelopmentReview.aspx" target="_blank" class="resource-link"><span class="icon">📋</span><div><div>Orange County — Development Review</div><div class="rl-desc">Site plans, zoning changes, hearings</div></div></a>
+        <a href="https://hamlinfl.com/" target="_blank" class="resource-link"><span class="icon">🏘️</span><div><div>Hamlin FL — Official Site</div><div class="rl-desc">Master community news and updates</div></div></a>
+        <a href="https://www.orangeobserver.com/" target="_blank" class="resource-link"><span class="icon">📰</span><div><div>West Orange Times & Observer</div><div class="rl-desc">Local news covering Hamlin development</div></div></a>
+        <a href="https://www.growthspotter.com" target="_blank" class="resource-link"><span class="icon">📡</span><div><div>GrowthSpotter</div><div class="rl-desc">Real estate & development news tracker (subscription)</div></div></a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Hamlin Area Development Tracker &mdash; Data sourced from Orange County public records, City of Winter Garden, GrowthSpotter, West Orange Times, and developer filings.<br>
+      This dashboard is a point-in-time snapshot. For the most current permit status, use the official portals linked above.
+    </div>
+  `;
+
+  renderCards('all', 'all', '');
+  attachListeners();
+}
+
+function renderCards(statusFilter, typeFilter, search) {
+  const container = document.getElementById('cardsContainer');
+  let filtered = PROJECTS.filter(p => {
+    if (statusFilter !== 'all' && p.status !== statusFilter) return false;
+    if (typeFilter !== 'all' && p.type !== typeFilter) return false;
+    if (search) {
+      const s = search.toLowerCase();
+      return (p.name + p.location + p.developer + p.description + p.category).toLowerCase().includes(s);
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="empty-state">No projects match your filters. Try broadening your search.</div>';
+    return;
+  }
+
+  const statusOrder = ['construction', 'filed', 'approved', 'proposed', 'open'];
+  filtered.sort((a, b) => statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status));
+
+  container.innerHTML = `
+    <div class="section-title">Projects <span class="count">${filtered.length}</span></div>
+    <div class="cards-grid">
+      ${filtered.map(p => `
+        <div class="permit-card">
+          <div class="type-tag type-${p.type}">${p.type}</div>
+          <div class="card-header" style="margin-top:8px">
+            <div class="project-name">${p.name}</div>
+            <span class="badge badge-${p.status}">${p.status === 'construction' ? 'Under Construction' : p.status}</span>
+          </div>
+          <dl class="card-details">
+            <dt>Location</dt><dd>${p.location}</dd>
+            <dt>Size</dt><dd>${p.size}</dd>
+            <dt>Developer</dt><dd>${p.developer}</dd>
+            <dt>Category</dt><dd>${p.category}</dd>
+            <dt>Timeline</dt><dd>${p.timeline}</dd>
+          </dl>
+          <div class="card-desc">${p.description}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function attachListeners() {
+  let currentStatus = 'all';
+  let currentType = 'all';
+
+  document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentStatus = btn.dataset.filter;
+      renderCards(currentStatus, currentType, document.getElementById('searchInput').value);
+    });
+  });
+
+  document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        currentType = 'all';
+      } else {
+        document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentType = btn.dataset.type;
+      }
+      renderCards(currentStatus, currentType, document.getElementById('searchInput').value);
+    });
+  });
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    renderCards(currentStatus, currentType, e.target.value);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
