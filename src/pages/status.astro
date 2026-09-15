@@ -1,0 +1,25 @@
+---
+import Base from '@/layouts/Base.astro';
+import { formatDateTime } from '@/lib/dates';
+import state from '../../data/pipeline-state.json';
+import registry from '../../data/sources-registry.json';
+const adapters = Object.entries(registry.adapters as Record<string, any>);
+const st = state as any;
+---
+<Base title="Data status" description="When the nightly update last ran and which sources are healthy.">
+  <div class="section">
+    <h1>Data status</h1>
+    <div class="stat-row">
+      <div class="card stat"><div class="v">{st.lastStatus ?? 'never'}</div><div class="l">Last run result</div></div>
+      <div class="card stat"><div class="v">{st.lastSuccessAt ? formatDateTime(st.lastSuccessAt) : '—'}</div><div class="l">Last successful update</div></div>
+      <div class="card stat"><div class="v">{st.costUsdLastRun != null ? `$${st.costUsdLastRun.toFixed(2)}` : '—'}</div><div class="l">Model cost, last run</div></div>
+    </div>
+    <div class="table-wrap card" style="margin-top:16px;padding:8px 12px">
+      <table>
+        <thead><tr><th>Source</th><th>Type</th><th>Enabled</th><th>Last OK</th><th>Docs</th><th>Last error</th></tr></thead>
+        <tbody>{adapters.map(([id, cfg]) => { const a = st.adapters?.[id] ?? {}; return <tr><td><strong>{cfg.publisher}</strong><div class="small muted">{id}</div></td><td>{cfg.kind}</td><td>{cfg.enabled === false ? 'off' : 'on'}</td><td>{a.lastOkAt ? formatDateTime(a.lastOkAt) : '—'}</td><td>{a.docsLastRun ?? 0}</td><td class="small muted">{a.lastError ?? ''}</td></tr>; })}</tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin-top:12px">Sources are read every night by an automated job. A failing source degrades gracefully: the rest of the update still runs and the last good data stays online.</p>
+  </div>
+</Base>

@@ -1,0 +1,87 @@
+name: Nightly data refresh
+
+on:
+  schedule:
+    - cron: '15 7 * * *' # 03:15 America/New_York during EDT (04:15 EST)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: run | dry-run | discover
+        default: run
+        type: choice
+        options: [run, dry-run, discover]
+      only:
+        description: Comma-separated adapter ids (optional)
+        default: ''
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-opus-5' }}
+      MAPBOX_SERVER_TOKEN: ${{ secrets.MAPBOX_SERVER_TOKEN }}
+      IMAGE_API_KEY: ${{ secrets.IMAGE_API_KEY }}
+      IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'google' }}
+      MAX_IMAGES_PER_RUN: ${{ vars.MAX_IMAGES_PER_RUN || '5' }}
+      MAX_RECONCILE_PER_RUN: ${{ vars.MAX_RECONCILE_PER_RUN || '12' }}
+      COST_CAP_USD: ${{ vars.COST_CAP_USD || '8' }}
+      PUBLIC_MAPBOX_TOKEN: ${{ vars.PUBLIC_MAPBOX_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Refresh data
+        id: refresh
+        run: |
+          MODE="${{ github.event.inputs.mode || 'run' }}"
+          ONLY="${{ github.event.inputs.only }}"
+          npm run refresh -- --mode="$MODE" ${ONLY:+--only="$ONLY"}
+      - name: Upload run artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: refresh-${{ github.run_id }}
+          path: |
+            scratch/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Build site with new data
+        if: github.event.inputs.mode == '' || github.event.inputs.mode == 'run'
+        run: npm run build
+      - name: Commit and push
+        if: github.event.inputs.mode == '' || github.event.inputs.mode == 'run'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data public/images
+          if git diff --cached --quiet; then echo "No data changes"; exit 0; fi
+          git commit -m "data: nightly refresh $(date -u +%Y-%m-%d)"
+          git push origin HEAD:main
+      - name: Open issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let log = '';
+            try { log = fs.readFileSync('scratch/refresh.log', 'utf8').split('\n').slice(-80).join('\n'); } catch {}
+            const title = `Nightly refresh failed (${new Date().toISOString().slice(0,10)})`;
+            const { data: open } = await github.rest.issues.listForRepo({ ...context.repo, state: 'open', labels: 'pipeline' });
+            const body = `The nightly refresh failed. The site was **not** changed.\n\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n<details><summary>Last log lines</summary>\n\n\`\`\`\n${log}\n\`\`\`\n</details>`;
+            if (open.length) await github.rest.issues.createComment({ ...context.repo, issue_number: open[0].number, body });
+            else await github.rest.issues.create({ ...context.repo, title, body, labels: ['pipeline'] });

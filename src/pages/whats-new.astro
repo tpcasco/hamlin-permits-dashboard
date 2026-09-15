@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import { formatDateTime } from '@/lib/dates';
+const entries = (await getCollection('changelog')).map((e) => e.data).sort((a, b) => b.date.localeCompare(a.date));
+const byDay = new Map<string, typeof entries>();
+for (const c of entries) { const k = c.date.slice(0, 10); byDay.set(k, [...(byDay.get(k) ?? []), c]); }
+const KIND: Record<string, string> = { new: 'New', 'status-change': 'Status', 'date-change': 'Date', 'field-update': 'Update', 'image-added': 'Image', archived: 'Archived' };
+---
+<Base title="What's new" description="Every change the nightly update made to the Hamlin tracker, newest first.">
+  <div class="section">
+    <div class="section-head"><h1>What's new</h1><a class="btn" href="/feed.xml">RSS</a></div>
+    <p class="muted">Every status change, new date, new project, and new image recorded by the nightly update. {entries.length} entries.</p>
+    {[...byDay.entries()].map(([day, items]) => (
+      <section class="day">
+        <h2 class="day-h">{formatDateTime(day)}</h2>
+        <ul>{items.map((c) => <li class="card ev"><span class="k" data-kind={c.kind}>{KIND[c.kind] ?? c.kind}</span><div>{c.projectSlug ? <a href={`/projects/${c.projectSlug}`}><strong>{c.projectName}</strong></a> : <strong>{c.projectName}</strong>} <span>{c.summary}</span></div></li>)}</ul>
+      </section>
+    ))}
+  </div>
+</Base>
+<style>
+  .day-h { font-size: 1rem; color: var(--text-2); margin: 18px 0 8px; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .ev { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: start; padding: 10px 12px; }
+  .k { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; padding: 3px 7px; border-radius: 6px; background: var(--surface-2); color: var(--text-2); text-align: center; }
+  .k[data-kind="status-change"] { background: var(--accent-soft); color: var(--accent-text); }
+  .k[data-kind="new"] { background: #dcfce7; color: #166534; }
+  .k[data-kind="image-added"] { background: #fef3c7; color: #92400e; }
+</style>
