@@ -2,22 +2,105 @@
 import { getCollection } from 'astro:content';
 import Base from '@/layouts/Base.astro';
 import ProjectCard from '@/components/ProjectCard.astro';
-import { isActive, sortProjects } from '@/lib/projects';
-import { countByStatus } from '@/lib/stats';
+import HamlinMap from '@/components/map/HamlinMap';
+import { isActive, sortProjects, openingWindow, STATUS_LABEL } from '@/lib/projects';
+import { countByStatus, openedInYear } from '@/lib/stats';
+import { formatPrecise, relativeLabel, formatDateTime } from '@/lib/dates';
 const all = (await getCollection('projects')).map((e) => e.data).filter(isActive);
+const changelog = (await getCollection('changelog')).map((e) => e.data).sort((a, b) => b.date.localeCompare(a.date));
 const counts = countByStatus(all);
+const year = new Date().getUTCFullYear();
+const openedThisYear = openedInYear(all, year).length;
+const soon = sortProjects(all.filter((p) => ['this-month', 'next-3-months', 'next-6-months'].includes(openingWindow(p))), 'opening').slice(0, 8);
 const recent = sortProjects(all, 'updated').slice(0, 6);
+const weekAgo = new Date(Date.now() - 7 * 86_400_000).toISOString();
+const fresh = changelog.filter((c) => c.date >= weekAgo).slice(0, 8);
+const byDay = new Map<string, typeof fresh>();
+for (const c of fresh) { const k = c.date.slice(0, 10); byDay.set(k, [...(byDay.get(k) ?? []), c]); }
+const lastUpdate = changelog[0]?.date;
 ---
-<Base title="Home">
-  <div class="section">
-    <h1>What's being built in Hamlin</h1>
-    <div class="stat-row">
-      <div class="card stat"><div class="v" style="color:var(--construction)">{counts.construction}</div><div class="l">Under construction</div></div>
-      <div class="card stat"><div class="v" style="color:var(--approved)">{counts.approved}</div><div class="l">Approved</div></div>
-      <div class="card stat"><div class="v" style="color:var(--filed)">{counts.filed}</div><div class="l">Filed</div></div>
-      <div class="card stat"><div class="v" style="color:var(--proposed)">{counts.proposed}</div><div class="l">Proposed</div></div>
-      <div class="card stat"><div class="v" style="color:var(--open)">{counts.open}</div><div class="l">Open</div></div>
+<Base title="Hamlin Development Tracker" wide>
+  <section class="hero">
+    <div class="container hero-top">
+      <div>
+        <h1>What's being built in Hamlin</h1>
+        <p class="muted">{all.length} projects tracked across Hamlin &amp; Horizon West. Tap a pin, or <a href="/explore">explore the list</a>.</p>
+      </div>
+      <div class="hero-legend small muted">Updated nightly{lastUpdate && ` · last change ${formatDateTime(lastUpdate)}`}</div>
     </div>
+    <div class="container"><HamlinMap client:visible height="min(62vh, 560px)" showList /></div>
+  </section>
+
+  <div class="container">
+    <section class="section">
+      <div class="stat-row">
+        <a class="card stat" href="/explore?status=construction"><div class="v" style="color:var(--construction)">{counts.construction}</div><div class="l">{STATUS_LABEL.construction}</div></a>
+        <a class="card stat" href="/explore?status=approved"><div class="v" style="color:var(--approved)">{counts.approved}</div><div class="l">Approved</div></a>
+        <a class="card stat" href="/explore?status=filed"><div class="v" style="color:var(--filed)">{counts.filed}</div><div class="l">Filed, not started</div></a>
+        <a class="card stat" href="/explore?status=proposed"><div class="v" style="color:var(--proposed)">{counts.proposed}</div><div class="l">Proposed</div></a>
+        <a class="card stat" href="/explore?status=open"><div class="v" style="color:var(--open)">{openedThisYear}</div><div class="l">Opened in {year}</div></a>
+      </div>
+    </section>
+
+    {soon.length > 0 && (
+      <section class="section">
+        <div class="section-head"><h2>Opening soon</h2><a href="/coming-soon">Full calendar</a></div>
+        <div class="strip">
+          {soon.map((p) => (
+            <a class="card soon" href={`/projects/${p.slug}`}>
+              <div class="eyebrow">{formatPrecise(p.expectedCompletion!.date, p.expectedCompletion!.precision, p.expectedCompletion!.label)}</div>
+              <strong>{p.name}</strong>
+              <span class="small muted">{relativeLabel(p.expectedCompletion!.date)} · {p.category}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="section">
+      <div class="section-head"><h2>What's new this week</h2><a href="/whats-new">All changes</a></div>
+      {fresh.length === 0 ? (
+        <div class="card empty"><p class="muted">No changes recorded in the last 7 days. The nightly update posts every status change, new project, and new rendering here.</p></div>
+      ) : (
+        <div class="card feed">
+          {[...byDay.entries()].map(([day, items]) => (
+            <div class="feed-day">
+              <div class="eyebrow">{formatDateTime(day)}</div>
+              <ul>{items.map((c) => <li>{c.projectSlug ? <a href={`/projects/${c.projectSlug}`}><strong>{c.projectName}</strong></a> : <strong>{c.projectName}</strong>} — {c.summary}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Recently updated</h2><a href="/explore">See all {all.length}</a></div>
+      <div class="grid">{recent.map((p) => <ProjectCard project={p} />)}</div>
+    </section>
+
+    <section class="section cta card">
+      <div>
+        <h2>Never miss an opening</h2>
+        <p class="muted">Subscribe to the openings calendar or the RSS feed, and share this site with a neighbor.</p>
+      </div>
+      <div class="cta-btns"><a class="btn btn-primary" href="/subscribe">Subscribe</a><a class="btn" href="/how-permits-work">How permits work</a></div>
+    </section>
   </div>
-  <div class="section"><div class="section-head"><h2>Recently updated</h2><a href="/explore">See all</a></div><div class="grid">{recent.map((p) => <ProjectCard project={p} />)}</div></div>
 </Base>
+<style>
+  .hero { padding: 16px 0 8px; }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .hero-top p { margin: 0; }
+  .stat { text-decoration: none; color: var(--text); }
+  .stat:hover { border-color: var(--accent); text-decoration: none; }
+  .strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+  .soon { flex: 0 0 220px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; color: var(--text); text-decoration: none; scroll-snap-align: start; }
+  .soon:hover { border-color: var(--accent); text-decoration: none; }
+  .empty, .feed { padding: 16px; }
+  .empty p { margin: 0; }
+  .feed-day { margin-bottom: 12px; }
+  .feed-day ul { margin: 4px 0 0; padding-left: 1.1rem; }
+  .cta { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 20px; }
+  .cta p { margin: 0; }
+  .cta-btns { display: flex; gap: 8px; }
+</style>

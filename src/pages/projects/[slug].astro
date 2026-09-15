@@ -4,6 +4,7 @@ import Base from '@/layouts/Base.astro';
 import StatusChip from '@/components/StatusChip.astro';
 import StatusStepper from '@/components/StatusStepper.astro';
 import ProjectCard from '@/components/ProjectCard.astro';
+import MiniMap from '@/components/map/MiniMap';
 import { categoryMeta, heroImage, nearby, TYPE_LABEL, STATUS_LABEL } from '@/lib/projects';
 import { formatPrecise, relativeLabel, formatDateTime, daysFromNow } from '@/lib/dates';
 
@@ -103,7 +104,7 @@ const stale = daysFromNow(p.meta.lastVerifiedAt.slice(0, 10)) < -60;
           {p.location.lat && p.location.lng ? (
             <>
               <div class="minimap-slot" data-minimap data-lat={p.location.lat} data-lng={p.location.lng} data-name={p.name} data-status={p.status} data-confidence={p.location.geocodeConfidence ?? 'medium'} data-footprint={p.location.footprint ? JSON.stringify(p.location.footprint) : undefined}>
-                <slot name="minimap" />
+                <MiniMap client:visible lat={p.location.lat} lng={p.location.lng} name={p.name} status={p.status} confidence={p.location.geocodeConfidence ?? 'medium'} footprint={p.location.footprint ? JSON.stringify(p.location.footprint) : undefined} />
               </div>
               <p class="small muted">{p.location.geocodeConfidence === 'low' ? 'Approximate location based on the written description; exact pin pending geocoding. ' : ''}<a href={`https://www.google.com/maps/dir/?api=1&destination=${p.location.lat},${p.location.lng}`} rel="noopener">Directions</a></p>
             </>

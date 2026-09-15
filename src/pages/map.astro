@@ -1,0 +1,12 @@
+---
+import Base from '@/layouts/Base.astro';
+import HamlinMap from '@/components/map/HamlinMap';
+const focus = undefined;
+---
+<Base title="3D map" description="Interactive 3D map of every tracked project in Hamlin and Horizon West." wide>
+  <div class="container map-page">
+    <div class="section-head"><h1>Map</h1><p class="small muted">Drag to pan · two fingers or right-drag to tilt and rotate · tap a pin for details</p></div>
+    <HamlinMap client:load height="calc(100vh - var(--nav-h) - var(--tab-h) - 120px)" showList focusSlug={focus} />
+  </div>
+</Base>
+<style>.map-page{padding-top:12px}.section-head{align-items:flex-end}.section-head p{margin:0}</style>

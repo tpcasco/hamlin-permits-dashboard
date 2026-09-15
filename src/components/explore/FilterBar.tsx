@@ -7,7 +7,7 @@ type State = { status: string[]; category: string[]; window: string; q: string; 
 const STATUS_OPTS = [
   ['construction', 'Under construction'], ['approved', 'Approved'], ['filed', 'Filed'], ['proposed', 'Proposed'], ['open', 'Open'],
 ] as const;
-const WINDOW_OPTS = [['', 'Any time'], ['this-month', 'This month'], ['next-3-months', 'Next 3 months'], ['next-6-months', 'Next 6 months'], ['this-year', 'This year'], ['later', '2027+'], ['unknown', 'Unknown']] as const;
+const WINDOW_OPTS = [['', 'Any time'], ['this-month', 'This month'], ['next-3-months', 'Next 3 months'], ['next-6-months', 'Next 6 months'], ['this-year', 'This year'], ['later', '2027+'], ['overdue', 'Awaiting confirmation'], ['unknown', 'Unknown']] as const;
 const SORT_OPTS = [['updated', 'Recently updated'], ['opening', 'Opening soonest'], ['stage', 'Furthest along'], ['name', 'Name A–Z']] as const;
 const STAGE = ['proposed', 'filed', 'approved', 'construction', 'open'];
 

@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@types/mapbox-gl": "^3.4.1",
     "@types/node": "^26.6.0",
     "playwright": "^1.63.0",
     "tsx": "^4.23.13",

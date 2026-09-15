@@ -182,7 +182,7 @@ export const ChangelogEntrySchema = z.object({
   date: z.iso.datetime(),
   runId: z.string().min(1),
   projectId: z.string().min(1),
-  projectSlug: z.string().min(1),
+  projectSlug: z.string(), // empty for site-level entries
   projectName: z.string().min(1),
   kind: z.enum(['new', 'status-change', 'date-change', 'field-update', 'image-added', 'archived']),
   summary: z.string().min(1),

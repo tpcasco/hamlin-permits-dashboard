@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { isActive, sortProjects } from '@/lib/projects';
+import { monthKey, monthLabel, formatPrecise } from '@/lib/dates';
+const all = (await getCollection('projects')).map((e) => e.data).filter((p) => isActive(p) && p.status !== 'open');
+const today = new Date().toISOString().slice(0, 10);
+const dated = sortProjects(all.filter((p) => p.expectedCompletion), 'opening');
+const upcoming = dated.filter((p) => p.expectedCompletion!.date >= today.slice(0, 7));
+const overdue = dated.filter((p) => p.expectedCompletion!.date < today.slice(0, 7));
+const undated = all.filter((p) => !p.expectedCompletion);
+const months = new Map<string, typeof upcoming>();
+for (const p of upcoming) { const k = monthKey(p.expectedCompletion!.date.length === 4 ? `${p.expectedCompletion!.date}-12` : p.expectedCompletion!.date); months.set(k, [...(months.get(k) ?? []), p]); }
+---
+<Base title="Coming soon" description="Expected opening dates for everything under way in Hamlin, month by month.">
+  <div class="section">
+    <div class="section-head"><h1>Coming soon</h1><a class="btn" href="/openings.ics">Subscribe to calendar</a></div>
+    <p class="muted">Dates come from permits, developer announcements, and local news. "Estimate" means a season or year was given, not a day.</p>
+    {[...months.entries()].map(([m, list]) => (
+      <section class="month">
+        <h2>{monthLabel(m)} <span class="count">{list.length}</span></h2>
+        <div class="grid">{list.map((p) => <ProjectCard project={p} compact />)}</div>
+      </section>
+    ))}
+    {upcoming.length === 0 && <p class="muted">No dated openings on the calendar right now.</p>}
+    {overdue.length > 0 && (
+      <section class="month">
+        <h2>Awaiting confirmation <span class="count">{overdue.length}</span></h2>
+        <p class="small muted">These had an announced opening date that has passed. They may have opened; the nightly check confirms when a source reports it.</p>
+        <div class="grid">{overdue.map((p) => <ProjectCard project={p} compact />)}</div>
+      </section>
+    )}
+    <section class="month">
+      <h2>No date yet <span class="count">{undated.length}</span></h2>
+      <ul class="undated">{undated.map((p) => <li><a href={`/projects/${p.slug}`}>{p.name}</a> <span class="small muted">· {p.category} · {p.status}</span></li>)}</ul>
+    </section>
+  </div>
+</Base>
+<style>
+  .month { margin: 22px 0; }
+  .count { font-size: .8rem; background: var(--accent-soft); color: var(--accent-text); padding: 2px 8px; border-radius: 999px; vertical-align: middle; }
+  .undated { columns: 2; column-gap: 24px; padding-left: 1.1rem; }
+  @media (max-width: 560px) { .undated { columns: 1; } }
+</style>

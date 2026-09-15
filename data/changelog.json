@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "2026-09-15-site-relaunch",
+    "date": "2026-09-15T19:00:00.000Z",
+    "runId": "migration-2026-09-15",
+    "projectId": "site",
+    "projectSlug": "",
+    "projectName": "Hamlin Development Tracker",
+    "kind": "new",
+    "summary": "Site relaunched with 34 projects migrated from the February 2026 tracker. Nightly automated updates begin once source adapters are enabled.",
+    "diff": [],
+    "sourceIds": ["legacy-tracker-2026-02"]
+  }
+]

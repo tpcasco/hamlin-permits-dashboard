@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import StatusChip from '@/components/StatusChip.astro';
+import { isActive, categoryMeta } from '@/lib/projects';
+import { formatPrecise, monthKey, monthLabel } from '@/lib/dates';
+const all = (await getCollection('projects')).map((e) => e.data).filter(isActive);
+const today = new Date().toISOString().slice(0, 10);
+type Item = { date: string; precision: any; label: string; title: string; detail?: string; slug: string; name: string; category: string; status: any; future: boolean; kind: string };
+const items: Item[] = [];
+for (const p of all) {
+  for (const m of p.milestones) {
+    if (m.precision === 'estimate' && m.kind !== 'other') continue;
+    items.push({ date: m.date, precision: m.precision, label: formatPrecise(m.date, m.precision), title: m.title, detail: m.detail, slug: p.slug, name: p.name, category: p.category, status: p.status, future: m.date > today, kind: m.kind });
+  }
+  if (p.expectedCompletion && p.status !== 'open' && p.expectedCompletion.date >= today.slice(0, 7)) {
+    const e = p.expectedCompletion;
+    items.push({ date: e.date, precision: e.precision, label: formatPrecise(e.date, e.precision, e.label), title: e.precision === 'day' ? 'Opening' : 'Expected opening', slug: p.slug, name: p.name, category: p.category, status: p.status, future: true, kind: 'opening' });
+  }
+}
+const past = items.filter((i) => !i.future).sort((a, b) => b.date.localeCompare(a.date));
+const future = items.filter((i) => i.future).sort((a, b) => a.date.localeCompare(b.date));
+const group = (list: Item[]) => { const m = new Map<string, Item[]>(); for (const i of list) m.set(monthKey(i.date.length === 4 ? `${i.date}-12` : i.date), [...(m.get(monthKey(i.date.length === 4 ? `${i.date}-12` : i.date)) ?? []), i]); return [...m.entries()]; };
+const categories = [...new Set(all.map((p) => p.category))].sort();
+---
+<Base title="Timeline" description="Month-by-month timeline of Hamlin development: what happened, and what is expected next.">
+  <div class="section">
+    <h1>Timeline</h1>
+    <div class="tl-controls">
+      <div class="seg" role="tablist"><button class="on" data-show="future" role="tab" aria-selected="true">Upcoming</button><button data-show="past" role="tab" aria-selected="false">Past</button></div>
+      <select id="tl-cat" aria-label="Filter by category"><option value="">All categories</option>{categories.map((c) => <option value={c}>{c}</option>)}</select>
+    </div>
+    {[['future', future], ['past', past]].map(([key, list]) => (
+      <div class="tl-list" data-list={key} hidden={key === 'past'}>
+        {group(list as Item[]).map(([month, its]) => (
+          <section class="month">
+            <h2 class="month-h">{monthLabel(month)}</h2>
+            <ul>
+              {its.map((i) => (
+                <li class="card ev" data-cat={i.category}>
+                  <span class="ev-date">{i.label}</span>
+                  <div class="ev-body">
+                    <div class="ev-title"><span aria-hidden="true">{categoryMeta(i.category).icon}</span> <a href={`/projects/${i.slug}`}>{i.name}</a> <span class="muted">· {i.title}</span></div>
+                    {i.detail && <div class="small muted">{i.detail}</div>}
+                  </div>
+                  <StatusChip status={i.status} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+        {(list as Item[]).length === 0 && <p class="muted">Nothing here yet.</p>}
+      </div>
+    ))}
+  </div>
+  <script>
+    const segs = document.querySelectorAll<HTMLButtonElement>('.seg button');
+    segs.forEach((b) => b.addEventListener('click', () => {
+      segs.forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', String(x === b)); });
+      document.querySelectorAll<HTMLElement>('.tl-list').forEach((l) => (l.hidden = l.dataset.list !== b.dataset.show));
+    }));
+    const sel = document.getElementById('tl-cat') as HTMLSelectElement;
+    sel.addEventListener('change', () => {
+      document.querySelectorAll<HTMLElement>('.ev').forEach((e) => (e.hidden = !!sel.value && e.dataset.cat !== sel.value));
+      document.querySelectorAll<HTMLElement>('.month').forEach((m) => (m.hidden = ![...m.querySelectorAll<HTMLElement>('.ev')].some((e) => !e.hidden)));
+    });
+  </script>
+</Base>
+<style>
+  .tl-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; background: var(--surface); }
+  .seg button { border: 0; background: transparent; padding: .5rem 1rem; font-weight: 600; color: var(--text-2); cursor: pointer; }
+  .seg button.on { background: var(--accent); color: #fff; }
+  select { padding: .5rem .8rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; }
+  .month-h { position: sticky; top: calc(var(--nav-h) + 4px); background: var(--bg); padding: 6px 0; margin: 12px 0 8px; font-size: 1rem; color: var(--text-2); z-index: 1; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .ev { display: grid; grid-template-columns: 96px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; }
+  .ev-date { font-weight: 700; font-size: .85rem; color: var(--text-2); }
+  .ev-title a { color: var(--text); font-weight: 700; }
+  @media (max-width: 560px) { .ev { grid-template-columns: 1fr; } }
+</style>

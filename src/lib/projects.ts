@@ -93,13 +93,15 @@ export function typicalOrMeasured(all: Project[], category: string, t: StageTran
   return m !== null && measured.length >= 3 ? { days: m, measured: true } : { days: typicalDays(category, t), measured: false };
 }
 
-export type OpeningWindow = 'open' | 'this-month' | 'next-3-months' | 'next-6-months' | 'this-year' | 'later' | 'unknown';
+export type OpeningWindow = 'open' | 'overdue' | 'this-month' | 'next-3-months' | 'next-6-months' | 'this-year' | 'later' | 'unknown';
 export function openingWindow(p: Project, now = new Date()): OpeningWindow {
   if (p.status === 'open') return 'open';
   const e = p.expectedCompletion;
   if (!e) return 'unknown';
   const days = daysBetween(now, toDate(e.date));
-  if (days < 0 && e.precision === 'estimate') return 'unknown';
+  // Estimates are period starts ("Summer 2026" → Jul 1); give them the whole period before calling them overdue.
+  const grace = e.precision === 'estimate' ? 92 : e.precision === 'month' ? 31 : e.precision === 'year' ? 365 : 0;
+  if (days + grace < 0) return 'overdue';
   if (days <= 31) return 'this-month';
   if (days <= 92) return 'next-3-months';
   if (days <= 183) return 'next-6-months';
@@ -107,7 +109,7 @@ export function openingWindow(p: Project, now = new Date()): OpeningWindow {
   return 'later';
 }
 export const OPENING_WINDOW_LABEL: Record<OpeningWindow, string> = {
-  open: 'Already open', 'this-month': 'This month', 'next-3-months': 'Next 3 months', 'next-6-months': 'Next 6 months', 'this-year': 'Later this year', later: '2027 and beyond', unknown: 'Date unknown',
+  open: 'Already open', overdue: 'Awaiting confirmation', 'this-month': 'This month', 'next-3-months': 'Next 3 months', 'next-6-months': 'Next 6 months', 'this-year': 'Later this year', later: '2027 and beyond', unknown: 'Date unknown',
 };
 
 export function heroImage(p: Project) {

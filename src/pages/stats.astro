@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import { isActive, STATUS_LABEL, STATUS_COLOR, categoryMeta } from '@/lib/projects';
+import { countByStatus, countBy, durationStats, longestInStage, openingsByQuarter } from '@/lib/stats';
+import { humanDuration } from '@/lib/dates';
+const all = (await getCollection('projects')).map((e) => e.data).filter(isActive);
+const byStatus = countByStatus(all);
+const byCat = countBy(all, (p) => p.category);
+const byType = countBy(all, (p) => p.type);
+const durations = durationStats(all).sort((a, b) => a.category.localeCompare(b.category));
+const stuck = longestInStage(all, 6);
+const quarters = openingsByQuarter(all);
+const maxQ = Math.max(1, ...quarters.map((q) => q.count));
+const maxCat = Math.max(1, ...byCat.map((c) => c.count));
+const stages = ['proposed', 'filed', 'approved', 'construction', 'open'] as const;
+const total = all.length;
+---
+<Base title="Neighborhood stats" description="How many Hamlin projects are in each stage, how long stages take, and how openings trend.">
+  <div class="section">
+    <h1>Neighborhood stats</h1>
+    <p class="muted">{total} active projects. Durations are measured from local records where at least three projects have both dates; otherwise a category estimate (marked *) is shown.</p>
+
+    <section class="card blk">
+      <h2>Pipeline</h2>
+      <div class="bar" role="img" aria-label={stages.map((s) => `${STATUS_LABEL[s]}: ${byStatus[s]}`).join(', ')}>
+        {stages.map((s) => byStatus[s] > 0 && <span style={`flex:${byStatus[s]};background:${STATUS_COLOR[s]}`} title={`${STATUS_LABEL[s]}: ${byStatus[s]}`}>{byStatus[s]}</span>)}
+      </div>
+      <ul class="legend">{stages.map((s) => <li><i style={`background:${STATUS_COLOR[s]}`} />{STATUS_LABEL[s]} <strong>{byStatus[s]}</strong></li>)}</ul>
+    </section>
+
+    <div class="two">
+      <section class="card blk">
+        <h2>By category</h2>
+        <ul class="hbars">{byCat.map((c) => <li><span class="hl">{categoryMeta(c.key).icon} {c.key}</span><span class="hb"><i style={`width:${(c.count / maxCat) * 100}%;background:${categoryMeta(c.key).color}`} /></span><strong>{c.count}</strong></li>)}</ul>
+      </section>
+      <section class="card blk">
+        <h2>By type</h2>
+        <ul class="hbars">{byType.map((c) => <li><span class="hl">{c.key}</span><span class="hb"><i style={`width:${(c.count / total) * 100}%`} /></span><strong>{c.count}</strong></li>)}</ul>
+        <h2 style="margin-top:18px">Openings by quarter</h2>
+        <svg class="qchart" viewBox={`0 0 ${Math.max(quarters.length, 1) * 48} 120`} role="img" aria-label={quarters.map((q) => `${q.quarter}: ${q.count}`).join(', ')}>
+          {quarters.map((q, i) => <g transform={`translate(${i * 48},0)`}><rect x="8" y={100 - (q.count / maxQ) * 80} width="32" height={(q.count / maxQ) * 80} rx="4" fill="var(--open)" /><text x="24" y={96 - (q.count / maxQ) * 80} text-anchor="middle" font-size="11" fill="var(--text)">{q.count}</text><text x="24" y="114" text-anchor="middle" font-size="9" fill="var(--text-3)">{q.quarter.replace(' ', ' ')}</text></g>)}
+        </svg>
+      </section>
+    </div>
+
+    <section class="card blk">
+      <h2>How long each stage takes</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Category</th><th>Filed → Approved</th><th>Approved → Construction</th><th>Construction → Open</th></tr></thead>
+        <tbody>{durations.map((d) => <tr><td>{categoryMeta(d.category).icon} {d.category}</td>{d.transitions.map((t) => <td>{t.median != null && t.samples >= 3 ? <>{humanDuration(t.median)} <span class="small muted">({t.samples})</span></> : <>{humanDuration(t.typical)}<span class="muted">*</span></>}</td>)}</tr>)}</tbody>
+      </table></div>
+    </section>
+
+    <section class="card blk">
+      <h2>Longest in current stage</h2>
+      <ul class="stuck">{stuck.map(({ project, days }) => <li><a href={`/projects/${project.slug}`}>{project.name}</a> <span class="chip" data-status={project.status}>{STATUS_LABEL[project.status]}</span> <span class="muted small">{days ? humanDuration(days) : 'start date unknown'}</span></li>)}</ul>
+    </section>
+  </div>
+</Base>
+<style>
+  .blk { padding: 16px; margin-bottom: 16px; }
+  .two { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 800px) { .two { grid-template-columns: 1fr 1fr; } }
+  .bar { display: flex; height: 34px; border-radius: 10px; overflow: hidden; gap: 2px; }
+  .bar span { display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .85rem; min-width: 28px; }
+  .legend { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; padding: 0; margin: 10px 0 0; font-size: .85rem; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  .hbars { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .hbars li { display: grid; grid-template-columns: 1fr 120px 32px; gap: 10px; align-items: center; font-size: .9rem; }
+  .hb { height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .hb i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+  .qchart { width: 100%; max-width: 420px; height: auto; }
+  .stuck { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+</style>
