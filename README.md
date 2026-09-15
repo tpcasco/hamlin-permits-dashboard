@@ -34,9 +34,11 @@ Copy `.env.example` to `.env` and set `PUBLIC_MAPBOX_TOKEN` to see the map local
 2. Environment variable `PUBLIC_MAPBOX_TOKEN` = a Mapbox **public** token restricted to your domain (Mapbox dashboard → Tokens → URL restrictions). Optional `PUBLIC_SITE_URL` = your production URL (used for feeds and share links).
 3. Production deploys from `main`; every push by the nightly job redeploys automatically.
 
-## Nightly refresh (GitHub Actions)
+## Updating the data
 
-Workflow: `.github/workflows/refresh.yml`, 03:15 ET daily, plus manual `workflow_dispatch` with a `mode` input.
+**Default: from a Claude Code session, no API billing.** Say "update the Hamlin tracker"; the session researches sources with its own web search, writes `updates/<date>.json`, and applies it with `npx tsx scripts/apply-updates.ts`, which runs the same merge guardrails, validation, and changelog as the automated path, then commits and pushes. The procedure lives in `CLAUDE.md`.
+
+**Optional: automated refresh (GitHub Actions, uses the Anthropic API).** Workflow: `.github/workflows/refresh.yml`, manual `workflow_dispatch` with a `mode` input. Re-add the `schedule` block in the workflow to run it nightly.
 
 Repository **secrets**:
 

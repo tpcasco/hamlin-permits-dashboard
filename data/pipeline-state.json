@@ -1,1 +1,8 @@
-{ "lastStatus": "never", "adapters": {} }
+{
+  "lastStatus": "success",
+  "adapters": {},
+  "lastRunId": "manual-2026-09-15",
+  "lastRunAt": "2026-09-15T19:41:28.131Z",
+  "lastSuccessAt": "2026-09-15T19:41:28.131Z",
+  "costUsdLastRun": 0
+}

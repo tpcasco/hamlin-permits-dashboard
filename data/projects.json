@@ -60,7 +60,7 @@
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
       "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -76,8 +76,8 @@
     "aliases": [],
     "type": "commercial",
     "category": "Retail",
-    "status": "construction",
-    "statusConfidence": "medium",
+    "status": "open",
+    "statusConfidence": "high",
     "statusHistory": [
       {
         "status": "construction",
@@ -87,18 +87,18 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "status": "open",
+        "date": "2026-03-01",
+        "datePrecision": "day",
+        "sourceIds": [
+          "hwh-tjmaxx-open"
+        ]
       }
     ],
-    "expectedCompletion": {
-      "date": "2026-03-01",
-      "precision": "day",
-      "confidence": "medium",
-      "label": "Grand opening Mar 1, 2026",
-      "sourceIds": [
-        "legacy-tracker-2026-02"
-      ]
-    },
     "location": {
+      "address": "5758 Hamlin Groves Trail",
       "description": "Hamlin Groves Trail (south of Publix, next to Urban Air)",
       "lat": 28.4232,
       "lng": -81.6205,
@@ -124,6 +124,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2026-03-01",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "TJ Maxx officially opened its newest location on Sunday, March 1, welcoming customers to its approximately 25,000-square-foot store at 5758 Hamlin Groves Trail next door to Urban Air Adventure Park.",
+        "kind": "opening",
+        "sourceIds": [
+          "hwh-tjmaxx-open"
+        ]
       }
     ],
     "images": [],
@@ -135,17 +145,25 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "hwh-tjmaxx-open",
+        "url": "https://horizonwesthappenings.com/news/tj-maxx-now-open-in-horizon-west/",
+        "title": "horizonwesthappenings.com/news/tj-maxx-now-open-in-horizon-west/",
+        "publisher": "Horizon West Happenings",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.196Z",
+        "publishedAt": "2026-03-02"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "scheduled-opening-passed"
+        "geocode-low-confidence"
       ],
       "legacyId": "tj-maxx"
     }
@@ -211,7 +229,7 @@
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
       "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -227,8 +245,8 @@
     "aliases": [],
     "type": "commercial",
     "category": "Restaurant / Cafe",
-    "status": "construction",
-    "statusConfidence": "medium",
+    "status": "open",
+    "statusConfidence": "high",
     "statusHistory": [
       {
         "status": "construction",
@@ -237,19 +255,18 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "status": "open",
+        "date": "2026-06-17",
+        "datePrecision": "day",
+        "sourceIds": [
+          "obs-dutch-open"
+        ]
       }
     ],
-    "expectedCompletion": {
-      "date": "2026-05",
-      "precision": "month",
-      "confidence": "low",
-      "label": "Est. completion May 2026",
-      "sourceIds": [
-        "legacy-tracker-2026-02"
-      ]
-    },
     "location": {
-      "address": "5215 Hamlin Groves Trail",
+      "address": "5205 Hamlin Groves Trail",
       "description": "5215 Hamlin Groves Trail",
       "lat": 28.4232,
       "lng": -81.6205,
@@ -264,6 +281,77 @@
     "developer": "Boyd Development",
     "summary": "Drive-thru coffee shop serving coffee, matcha, energy drinks, and seasonal beverages.",
     "description": "Drive-thru coffee shop serving coffee, matcha, energy drinks, and seasonal beverages.",
+    "business": {
+      "offerings": [
+        "Specialty coffee",
+        "Smoothies",
+        "Teas",
+        "Freezes",
+        "Lemonade",
+        "Nitro Cold Brew",
+        "Rebel energy drinks",
+        "Dual-lane drive-thru and walk-up window"
+      ],
+      "priceRange": "$",
+      "hours": [
+        {
+          "day": "sun",
+          "open": "05:00",
+          "close": "22:00"
+        },
+        {
+          "day": "mon",
+          "open": "05:00",
+          "close": "22:00"
+        },
+        {
+          "day": "tue",
+          "open": "05:00",
+          "close": "22:00"
+        },
+        {
+          "day": "wed",
+          "open": "05:00",
+          "close": "22:00"
+        },
+        {
+          "day": "thu",
+          "open": "05:00",
+          "close": "22:00"
+        },
+        {
+          "day": "fri",
+          "open": "05:00",
+          "close": "23:00"
+        },
+        {
+          "day": "sat",
+          "open": "05:00",
+          "close": "23:00"
+        }
+      ],
+      "website": "https://www.dutchbros.com/locations/fl/winter-garden/5205-hamlin-groves-trl.",
+      "fieldSources": {
+        "website": [
+          "dutch-site"
+        ],
+        "hours": [
+          "dutch-site"
+        ],
+        "offerings": [
+          "dutch-site"
+        ],
+        "priceRange": [
+          "dutch-site"
+        ]
+      },
+      "fieldConfidence": {
+        "website": "high",
+        "hours": "high",
+        "offerings": "high",
+        "priceRange": "high"
+      }
+    },
     "permits": [],
     "milestones": [
       {
@@ -285,6 +373,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2026-06-17",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "Dutch Bros opened Wednesday, June 17, at 5205 Hamlin Groves Trail in Hamlin Town Center.",
+        "kind": "opening",
+        "sourceIds": [
+          "obs-dutch-open"
+        ]
       }
     ],
     "images": [],
@@ -296,17 +394,33 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "obs-dutch-open",
+        "url": "https://www.orangeobserver.com/news/2026/jun/18/dutch-bros-now-open-in-hamlin/",
+        "title": "www.orangeobserver.com/news/2026/jun/18/dutch-bros-now-open-in-hamlin/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.207Z",
+        "publishedAt": "2026-06-18"
+      },
+      {
+        "id": "dutch-site",
+        "url": "https://www.dutchbros.com/locations/fl/winter-garden/5205-hamlin-groves-trl.",
+        "title": "www.dutchbros.com/locations/fl/winter-garden/5205-hamlin-groves-trl.",
+        "publisher": "dutchbros.com",
+        "kind": "business-site",
+        "retrievedAt": "2026-09-15T19:41:28.207Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "scheduled-opening-passed"
+        "geocode-low-confidence"
       ],
       "legacyId": "dutch-bros-coffee"
     }
@@ -331,12 +445,25 @@
         ]
       }
     ],
+    "expectedCompletion": {
+      "date": "2026",
+      "precision": "year",
+      "confidence": "low",
+      "sourceIds": [
+        "whatnow-tiki"
+      ]
+    },
     "location": {
       "description": "Adjacent to PopStroke, Hamlin Town Center lakefront",
       "lat": 28.4248,
       "lng": -81.6135,
       "geocodeConfidence": "low",
       "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 8700,
+      "unit": "sqft",
+      "raw": "8,700 sq ft"
     },
     "developer": "TBD",
     "summary": "Waterfront dining concept replacing the previously planned Don the Beachcomber location, next to PopStroke on Lake Hancock.",
@@ -373,12 +500,20 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "whatnow-tiki",
+        "url": "https://whatnow.com/orlando/restaurants/tiki-docks-coming-to-hamlin-town-center-at-horizon-west/",
+        "title": "whatnow.com/orlando/restaurants/tiki-docks-coming-to-hamlin-town-center-at-horizon-west/",
+        "publisher": "What Now Orlando",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -460,8 +595,8 @@
     "aliases": [],
     "type": "commercial",
     "category": "Restaurant / Cafe",
-    "status": "construction",
-    "statusConfidence": "medium",
+    "status": "open",
+    "statusConfidence": "high",
     "statusHistory": [
       {
         "status": "construction",
@@ -471,17 +606,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "status": "open",
+        "date": "2026-03-03",
+        "datePrecision": "day",
+        "sourceIds": [
+          "hwi-outback-open"
+        ]
       }
     ],
-    "expectedCompletion": {
-      "date": "2026-03-03",
-      "precision": "day",
-      "confidence": "medium",
-      "label": "Grand opening Mar 3, 2026 at 3 PM",
-      "sourceIds": [
-        "legacy-tracker-2026-02"
-      ]
-    },
     "location": {
       "address": "16323 New Independence Parkway",
       "description": "16323 New Independence Parkway (across from Starbucks)",
@@ -509,6 +643,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2026-03-03",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "The restaurant, located at 16323 New Independence Parkway, hosted a grand opening at 3 p.m. Tuesday, March 3.",
+        "kind": "opening",
+        "sourceIds": [
+          "hwi-outback-open"
+        ]
       }
     ],
     "images": [],
@@ -520,17 +664,25 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "hwi-outback-open",
+        "url": "https://www.horizonwestinfo.com/outback-steakhouse-opens-new-horizon-west-location-along-new-independence-parkway/",
+        "title": "www.horizonwestinfo.com/outback-steakhouse-opens-new-horizon-west-location-along-new-independence-parkway/",
+        "publisher": "Horizon West News & Info",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.207Z",
+        "publishedAt": "2026-03-03"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "scheduled-opening-passed"
+        "geocode-low-confidence"
       ],
       "legacyId": "outback-steakhouse"
     }
@@ -817,8 +969,8 @@
     "aliases": [],
     "type": "commercial",
     "category": "Financial Services",
-    "status": "construction",
-    "statusConfidence": "medium",
+    "status": "open",
+    "statusConfidence": "high",
     "statusHistory": [
       {
         "status": "construction",
@@ -828,17 +980,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "status": "open",
+        "date": "2026-03-11",
+        "datePrecision": "day",
+        "sourceIds": [
+          "vystar-site"
+        ]
       }
     ],
-    "expectedCompletion": {
-      "date": "2026-02",
-      "precision": "estimate",
-      "confidence": "low",
-      "label": "early 2026",
-      "sourceIds": [
-        "legacy-tracker-2026-02"
-      ]
-    },
     "location": {
       "address": "5026 Hamlin Groves Trail",
       "description": "5026 Hamlin Groves Trail",
@@ -850,6 +1001,18 @@
     "developer": "VyStar Credit Union",
     "summary": "New credit union branch.",
     "description": "New credit union branch. Construction underway with an early 2026 opening anticipated.",
+    "business": {
+      "offerings": [],
+      "website": "https://vystarcu.org/locations/hamlin-branch",
+      "fieldSources": {
+        "website": [
+          "vystar-site"
+        ]
+      },
+      "fieldConfidence": {
+        "website": "high"
+      }
+    },
     "permits": [],
     "milestones": [
       {
@@ -860,6 +1023,16 @@
         "kind": "status",
         "sourceIds": [
           "legacy-tracker-2026-02"
+        ]
+      },
+      {
+        "date": "2026-03-11",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "VyStar Credit Union celebrated the opening of its new Hamlin branch at 5026 Hamlin Groves Trail in Winter Garden's Hamlin Town Center. The branch opened on March 11, 2026.",
+        "kind": "opening",
+        "sourceIds": [
+          "vystar-site"
         ]
       }
     ],
@@ -872,17 +1045,25 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "vystar-site",
+        "url": "https://vystarcu.org/locations/hamlin-branch",
+        "title": "vystarcu.org/locations/hamlin-branch",
+        "publisher": "vystarcu.org",
+        "kind": "business-site",
+        "retrievedAt": "2026-09-15T19:41:28.208Z",
+        "publishedAt": "2026-03-11"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "scheduled-opening-passed"
+        "geocode-low-confidence"
       ],
       "legacyId": "vystar-credit-union-hamlin-branch"
     }
@@ -906,7 +1087,16 @@
         ]
       }
     ],
+    "expectedCompletion": {
+      "date": "2026-06",
+      "precision": "month",
+      "confidence": "high",
+      "sourceIds": [
+        "goddard-site"
+      ]
+    },
     "location": {
+      "address": "4975 Lake Hamlin Trail",
       "description": "West of Avalon Rd, north of Porter Rd (Silverleaf area)",
       "lat": 28.436,
       "lng": -81.633,
@@ -921,6 +1111,18 @@
     "developer": "Hamlin Partners at Silverleaf, LLC",
     "summary": "Childcare/daycare facility with paved parking and stormwater infrastructure.",
     "description": "Childcare/daycare facility with paved parking and stormwater infrastructure.",
+    "business": {
+      "offerings": [],
+      "website": "https://www.wgpreschools.com/",
+      "fieldSources": {
+        "website": [
+          "goddard-site"
+        ]
+      },
+      "fieldConfidence": {
+        "website": "high"
+      }
+    },
     "permits": [],
     "milestones": [
       {
@@ -943,12 +1145,29 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "obs-goddard",
+        "url": "https://www.orangeobserver.com/news/2026/may/14/the-goddard-school-of-winter-garden-expanding-to-horizon-west/",
+        "title": "www.orangeobserver.com/news/2026/may/14/the-goddard-school-of-winter-garden-expanding-to-horizon-west/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-05-14"
+      },
+      {
+        "id": "goddard-site",
+        "url": "https://www.wgpreschools.com/",
+        "title": "www.wgpreschools.com/",
+        "publisher": "wgpreschools.com",
+        "kind": "business-site",
+        "retrievedAt": "2026-09-15T19:41:28.209Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -978,6 +1197,7 @@
       }
     ],
     "location": {
+      "address": "15765 New Independence Parkway",
       "description": "Hamlin area",
       "lat": 28.4262,
       "lng": -81.6215,
@@ -998,6 +1218,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2026-12",
+        "precision": "estimate",
+        "title": "Construction expected to begin late 2026 or early 2027",
+        "detail": "The school expects approximately six months of permitting after receiving final approvals and hopes to begin construction near the end of 2026 or in early 2027.",
+        "kind": "news",
+        "sourceIds": [
+          "gs-wprep"
+        ]
       }
     ],
     "images": [],
@@ -1009,12 +1239,30 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "obs-wprep",
+        "url": "https://www.orangeobserver.com/news/2026/apr/01/windermere-prep-proposes-new-campus/",
+        "title": "www.orangeobserver.com/news/2026/apr/01/windermere-prep-proposes-new-campus/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-04-01"
+      },
+      {
+        "id": "gs-wprep",
+        "url": "https://www.growthspotter.com/2026/06/16/windermere-prep-estimates-timeline-for-hamlin-elementary-campus/",
+        "title": "www.growthspotter.com/2026/06/16/windermere-prep-estimates-timeline-for-hamlin-elementary-campus/",
+        "publisher": "GrowthSpotter",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-06-16"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -1096,8 +1344,8 @@
     "aliases": [],
     "type": "commercial",
     "category": "Restaurant / Cafe",
-    "status": "construction",
-    "statusConfidence": "medium",
+    "status": "open",
+    "statusConfidence": "high",
     "statusHistory": [
       {
         "status": "construction",
@@ -1107,9 +1355,18 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "status": "open",
+        "date": "2026-04",
+        "datePrecision": "month",
+        "sourceIds": [
+          "obs-tropical-open"
+        ]
       }
     ],
     "location": {
+      "address": "15503 Sunquat Drive",
       "description": "Corner of Hamlin Groves Trail & Calamondin Dr",
       "lat": 28.4232,
       "lng": -81.6205,
@@ -1124,6 +1381,31 @@
     "developer": "Franchise",
     "summary": "First Tropical Smoothie Cafe in Horizon West.",
     "description": "First Tropical Smoothie Cafe in Horizon West. 1,400 sq ft with drive-thru, outdoor seating, and parking. Located adjacent to Domino's, The NOW Massage, and Shisha Karate.",
+    "business": {
+      "offerings": [
+        "Smoothies",
+        "Acai bowls",
+        "Flatbreads",
+        "Wraps",
+        "Salads",
+        "In-store pickup",
+        "Curbside",
+        "Delivery"
+      ],
+      "website": "https://locations.tropicalsmoothiecafe.com/fl/winter-garden/15503-sunquat-drive",
+      "fieldSources": {
+        "website": [
+          "tropical-site"
+        ],
+        "offerings": [
+          "tropical-site"
+        ]
+      },
+      "fieldConfidence": {
+        "website": "high",
+        "offerings": "high"
+      }
+    },
     "permits": [],
     "milestones": [
       {
@@ -1134,6 +1416,16 @@
         "kind": "status",
         "sourceIds": [
           "legacy-tracker-2026-02"
+        ]
+      },
+      {
+        "date": "2026-04",
+        "precision": "month",
+        "title": "Opened",
+        "detail": "The cafe opened at 15503 Sunquat Drive with outdoor seating, designated parking, and a drive-thru.",
+        "kind": "opening",
+        "sourceIds": [
+          "obs-tropical-open"
         ]
       }
     ],
@@ -1146,12 +1438,29 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "obs-tropical-open",
+        "url": "https://www.orangeobserver.com/news/2026/apr/27/tropical-smoothie-cafe-opens-in-horizon-west/",
+        "title": "www.orangeobserver.com/news/2026/apr/27/tropical-smoothie-cafe-opens-in-horizon-west/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.208Z",
+        "publishedAt": "2026-04-27"
+      },
+      {
+        "id": "tropical-site",
+        "url": "https://locations.tropicalsmoothiecafe.com/fl/winter-garden/15503-sunquat-drive",
+        "title": "locations.tropicalsmoothiecafe.com/fl/winter-garden/15503-sunquat-drive",
+        "publisher": "tropicalsmoothiecafe.com",
+        "kind": "business-site",
+        "retrievedAt": "2026-09-15T19:41:28.208Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -1168,9 +1477,17 @@
     "aliases": [],
     "type": "commercial",
     "category": "Restaurant / Cafe",
-    "status": "filed",
+    "status": "construction",
     "statusConfidence": "medium",
     "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2025-10",
+        "datePrecision": "month",
+        "sourceIds": [
+          "obs-swig"
+        ]
+      },
       {
         "status": "filed",
         "date": "2026-02",
@@ -1181,6 +1498,15 @@
         ]
       }
     ],
+    "expectedCompletion": {
+      "date": "2026-07",
+      "precision": "estimate",
+      "confidence": "medium",
+      "label": "Summer 2026",
+      "sourceIds": [
+        "obs-swig"
+      ]
+    },
     "location": {
       "description": "New Independence Pkwy & Hamlin Groves Trail (near Urban Air)",
       "lat": 28.4232,
@@ -1207,6 +1533,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2025-10",
+        "precision": "month",
+        "title": "Status: construction",
+        "detail": "The 1,000 square foot drive-thru shop is being constructed at New Independence Parkway and Hamlin Groves Trail, and will be located next to Urban Air Adventure Park.",
+        "kind": "status",
+        "sourceIds": [
+          "obs-swig"
+        ]
       }
     ],
     "images": [],
@@ -1218,17 +1554,25 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "obs-swig",
+        "url": "https://www.orangeobserver.com/news/2025/oct/07/swig-to-open-location-in-hamlin/",
+        "title": "www.orangeobserver.com/news/2025/oct/07/swig-to-open-location-in-hamlin/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2025-10-07"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "timeline-unknown"
+        "geocode-low-confidence"
       ],
       "legacyId": "swig-dirty-soda"
     }
@@ -1306,9 +1650,17 @@
     "aliases": [],
     "type": "commercial",
     "category": "Restaurant / Cafe",
-    "status": "construction",
-    "statusConfidence": "medium",
+    "status": "open",
+    "statusConfidence": "high",
     "statusHistory": [
+      {
+        "status": "open",
+        "date": "2026-01-23",
+        "datePrecision": "day",
+        "sourceIds": [
+          "obs-filigree"
+        ]
+      },
       {
         "status": "construction",
         "date": "2026-02",
@@ -1320,6 +1672,7 @@
       }
     ],
     "location": {
+      "address": "16016 New Independence Pkwy, Suite 110",
       "description": "Hamlin Town Center (former Chick'nCone space)",
       "lat": 28.4262,
       "lng": -81.6215,
@@ -1340,6 +1693,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2026-01-23",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "Filigree Coffee opened its location in Horizon West on Friday, Jan. 23, at 16016 New Independence Pkwy, Suite 110, Winter Garden, next to Home State Brewing Co.",
+        "kind": "opening",
+        "sourceIds": [
+          "obs-filigree"
+        ]
       }
     ],
     "images": [],
@@ -1351,12 +1714,21 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "obs-filigree",
+        "url": "https://www.orangeobserver.com/news/2026/jan/27/filigree-coffee-opens-new-location/",
+        "title": "www.orangeobserver.com/news/2026/jan/27/filigree-coffee-opens-new-location/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-01-27"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -1417,12 +1789,20 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "hwi-wawa",
+        "url": "https://www.horizonwestinfo.com/wawa-planning-hamlin-location-along-avalon-road/",
+        "title": "www.horizonwestinfo.com/wawa-planning-hamlin-location-along-avalon-road/",
+        "publisher": "Horizon West News & Info",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
       "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -1484,12 +1864,20 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "hwi-sweetwater",
+        "url": "https://www.horizonwestinfo.com/sweetwater-carwash-submits-permits-for-location-next-to-hamlin-wawa/",
+        "title": "www.horizonwestinfo.com/sweetwater-carwash-submits-permits-for-location-next-to-hamlin-wawa/",
+        "publisher": "Horizon West News & Info",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
       "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -1925,12 +2313,12 @@
       }
     ],
     "expectedCompletion": {
-      "date": "2026-07",
+      "date": "2026-12",
       "precision": "estimate",
-      "confidence": "low",
-      "label": "Summer 2026",
+      "confidence": "high",
+      "label": "End of 2026",
       "sourceIds": [
-        "legacy-tracker-2026-02"
+        "toll-site"
       ]
     },
     "location": {
@@ -1940,9 +2328,26 @@
       "geocodeConfidence": "low",
       "geocodedFrom": "legacy-anchor"
     },
+    "size": {
+      "value": 368,
+      "unit": "homes",
+      "raw": "368 homes"
+    },
     "developer": "Toll Brothers",
     "summary": "Luxury single-family homes by Toll Brothers.",
     "description": "Luxury single-family homes by Toll Brothers. Multiple units with estimated completion through July 2026.",
+    "business": {
+      "offerings": [],
+      "website": "https://www.tollbrothers.com/luxury-homes-for-sale/Florida/Westhaven-at-Ovation",
+      "fieldSources": {
+        "website": [
+          "toll-site"
+        ]
+      },
+      "fieldConfidence": {
+        "website": "high"
+      }
+    },
     "permits": [],
     "milestones": [
       {
@@ -1965,17 +2370,24 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "toll-site",
+        "url": "https://www.tollbrothers.com/luxury-homes-for-sale/Florida/Westhaven-at-Ovation",
+        "title": "www.tollbrothers.com/luxury-homes-for-sale/Florida/Westhaven-at-Ovation",
+        "publisher": "tollbrothers.com",
+        "kind": "business-site",
+        "retrievedAt": "2026-09-15T19:41:28.209Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "scheduled-opening-passed"
+        "geocode-low-confidence"
       ],
       "legacyId": "westhaven-at-ovation-toll-brothers"
     }
@@ -2248,6 +2660,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2026-06-26",
+        "precision": "day",
+        "title": "Still under construction; opening date to be announced",
+        "detail": "As of June 26, 2026, the Horizon West library is still under construction. The Orange County Library System will announce an opening date as soon as one is scheduled.",
+        "kind": "news",
+        "sourceIds": [
+          "ocls-hw-updates"
+        ]
       }
     ],
     "images": [],
@@ -2259,12 +2681,21 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "ocls-hw-updates",
+        "url": "https://ocls.org/horizon-west-updates/",
+        "title": "ocls.org/horizon-west-updates/",
+        "publisher": "Orange County Library System",
+        "kind": "business-site",
+        "retrievedAt": "2026-09-15T19:41:28.208Z",
+        "publishedAt": "2026-06-26"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
@@ -2281,9 +2712,17 @@
     "aliases": [],
     "type": "infrastructure",
     "category": "Transportation",
-    "status": "proposed",
-    "statusConfidence": "medium",
+    "status": "construction",
+    "statusConfidence": "high",
     "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2025-09",
+        "datePrecision": "month",
+        "sourceIds": [
+          "ocfl-nip"
+        ]
+      },
       {
         "status": "proposed",
         "date": "2026-02",
@@ -2294,6 +2733,15 @@
         ]
       }
     ],
+    "expectedCompletion": {
+      "date": "2027-02",
+      "precision": "estimate",
+      "confidence": "high",
+      "label": "Early 2027",
+      "sourceIds": [
+        "news13-nip"
+      ]
+    },
     "location": {
       "description": "Connecting Orange & Lake Counties",
       "lat": 28.4395,
@@ -2315,6 +2763,16 @@
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
+      },
+      {
+        "date": "2025-09",
+        "precision": "month",
+        "title": "Status: construction",
+        "detail": "Construction Underway on New Independence Parkway Extension in Orange County",
+        "kind": "status",
+        "sourceIds": [
+          "ocfl-nip"
+        ]
       }
     ],
     "images": [],
@@ -2326,17 +2784,34 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "ocfl-nip",
+        "url": "https://newsroom.ocfl.net/media-advisories/press-releases/2025/09/construction-underway-on-new-independence-parkway-extension-in-orange-county/",
+        "title": "newsroom.ocfl.net/media-advisories/press-releases/2025/09/construction-underway-on-new-independence-parkway-extension-in",
+        "publisher": "Orange County Government",
+        "kind": "gis",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2025-09"
+      },
+      {
+        "id": "news13-nip",
+        "url": "https://mynews13.com/fl/orlando/news/2026/03/11/work-underway-to-extend-new-independence-pkwy-to-lake-county",
+        "title": "mynews13.com/fl/orlando/news/2026/03/11/work-underway-to-extend-new-independence-pkwy-to-lake-county",
+        "publisher": "Spectrum News 13",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-03-11"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "timeline-unknown"
+        "geocode-low-confidence"
       ],
       "legacyId": "new-independence-pkwy-extension"
     }
@@ -2348,9 +2823,17 @@
     "aliases": [],
     "type": "infrastructure",
     "category": "Transportation",
-    "status": "proposed",
-    "statusConfidence": "medium",
+    "status": "construction",
+    "statusConfidence": "high",
     "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2024-04",
+        "datePrecision": "month",
+        "sourceIds": [
+          "hoodline-516"
+        ]
+      },
       {
         "status": "proposed",
         "date": "2026-02",
@@ -2361,6 +2844,15 @@
         ]
       }
     ],
+    "expectedCompletion": {
+      "date": "2029",
+      "precision": "year",
+      "confidence": "high",
+      "label": "2029 (first segment spring 2027)",
+      "sourceIds": [
+        "hoodline-516"
+      ]
+    },
     "location": {
       "description": "Orange to Lake County corridor",
       "lat": 28.4395,
@@ -2371,6 +2863,18 @@
     "developer": "FDOT / CFX",
     "summary": "New toll road to ease travel between Orange and Lake Counties, benefiting Hamlin-area commuters.",
     "description": "New toll road to ease travel between Orange and Lake Counties, benefiting Hamlin-area commuters.",
+    "business": {
+      "offerings": [],
+      "website": "https://www.cfxway.com/sr-516/",
+      "fieldSources": {
+        "website": [
+          "cfx-516"
+        ]
+      },
+      "fieldConfidence": {
+        "website": "high"
+      }
+    },
     "permits": [],
     "milestones": [
       {
@@ -2381,6 +2885,26 @@
         "kind": "status",
         "sourceIds": [
           "legacy-tracker-2026-02"
+        ]
+      },
+      {
+        "date": "2024-04",
+        "precision": "month",
+        "title": "Status: construction",
+        "detail": "Construction on SR-516 officially began in April 2024, with work projected to continue through 2029.",
+        "kind": "status",
+        "sourceIds": [
+          "hoodline-516"
+        ]
+      },
+      {
+        "date": "2027-04",
+        "precision": "estimate",
+        "title": "SR-429 interchange segment scheduled to open",
+        "detail": "Segment 3, the county-line interchange with SR-429, is set to open first in spring 2027.",
+        "kind": "news",
+        "sourceIds": [
+          "hoodline-516"
         ]
       }
     ],
@@ -2393,19 +2917,316 @@
         "kind": "legacy",
         "retrievedAt": "2026-02-25T15:30:00.000Z",
         "publishedAt": "2026-02-25"
+      },
+      {
+        "id": "hoodline-516",
+        "url": "https://hoodline.com/2026/03/new-sr-516-toll-road-roars-to-life-in-west-orange-first-stretch-due-2027/",
+        "title": "hoodline.com/2026/03/new-sr-516-toll-road-roars-to-life-in-west-orange-first-stretch-due-2027/",
+        "publisher": "Hoodline",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-03"
+      },
+      {
+        "id": "cfx-516",
+        "url": "https://www.cfxway.com/for-travelers/projects/state-road-516-from-us-27-to-sr-429/",
+        "title": "www.cfxway.com/for-travelers/projects/state-road-516-from-us-27-to-sr-429/",
+        "publisher": "Central Florida Expressway Authority",
+        "kind": "gis",
+        "retrievedAt": "2026-09-15T19:41:28.209Z"
       }
     ],
     "meta": {
       "createdAt": "2026-02-25T15:30:00.000Z",
-      "updatedAt": "2026-09-15T19:11:41.098Z",
-      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
       "confidence": "medium",
       "archived": false,
       "needsReview": [
-        "geocode-low-confidence",
-        "timeline-unknown"
+        "geocode-low-confidence"
       ],
       "legacyId": "sr-516-toll-road"
+    }
+  },
+  {
+    "id": "biscuit-belly-replacing-maple-street-biscuit-company",
+    "slug": "biscuit-belly-replacing-maple-street-biscuit-company",
+    "name": "Biscuit Belly (replacing Maple Street Biscuit Company)",
+    "aliases": [
+      "Biscuit Belly",
+      "Maple Street Biscuit Company Hamlin"
+    ],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "proposed",
+    "statusConfidence": "low",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-07-22",
+        "datePrecision": "day",
+        "note": "First reported",
+        "sourceIds": [
+          "obs-biscuit"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2028-08",
+      "precision": "estimate",
+      "confidence": "medium",
+      "label": "Q3 2028",
+      "sourceIds": [
+        "obs-biscuit"
+      ]
+    },
+    "location": {
+      "address": "16027 New Independence Pkwy #100",
+      "description": "Hamlin Town Center, 16027 New Independence Pkwy #100 (current Maple Street Biscuit Company)"
+    },
+    "summary": "Hamlin's Maple Street Biscuit Company stays open and will be rebranded as a Biscuit Belly after Cracker Barrel sold the chain.",
+    "description": "Cracker Barrel sold Maple Street Biscuit Company; 16 locations closed nationwide, but the Hamlin restaurant at 16027 New Independence Pkwy #100 is among the 35 that stay open and convert to the Biscuit Belly brand. Conversions begin in January 2027 and Hamlin is tentatively scheduled for the third quarter of 2028.",
+    "permits": [],
+    "milestones": [],
+    "images": [],
+    "sources": [
+      {
+        "id": "obs-biscuit",
+        "url": "https://www.orangeobserver.com/news/2026/jul/22/hamlins-maple-street-biscuit-company-transitioning-to-biscuit-belly/",
+        "title": "www.orangeobserver.com/news/2026/jul/22/hamlins-maple-street-biscuit-company-transitioning-to-biscuit-belly/",
+        "publisher": "West Orange Times & Observer",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-07-22"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-09-15T19:41:28.131Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
+      "confidence": "low",
+      "archived": false,
+      "needsReview": []
+    }
+  },
+  {
+    "id": "hamlin-medical-offices-phase-2",
+    "slug": "hamlin-medical-offices-phase-2",
+    "name": "Hamlin Medical Offices (Phase 2)",
+    "aliases": [
+      "Hamlin medical office park"
+    ],
+    "type": "commercial",
+    "category": "Healthcare / Pharmacy",
+    "status": "filed",
+    "statusConfidence": "high",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-04",
+        "datePrecision": "month",
+        "sourceIds": [
+          "gs-medical"
+        ]
+      },
+      {
+        "status": "proposed",
+        "date": "2026-04-21",
+        "datePrecision": "day",
+        "note": "First reported",
+        "sourceIds": [
+          "gs-medical"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2027",
+      "precision": "year",
+      "confidence": "medium",
+      "sourceIds": [
+        "gs-medical"
+      ]
+    },
+    "location": {
+      "description": "Avalon Road & Lake Hamlin Trail (9-acre lot), near Avalon Road & Porter Road"
+    },
+    "summary": "Six new medical office buildings (two 12,000 sq ft and four 5,000 sq ft) on 9 acres at Avalon Road and Lake Hamlin Trail, delivery targeted for 2027.",
+    "description": "Boyd Development filed plans with Orange County for the next phase of the Hamlin medical offices project on about 20 acres near Avalon Road and Porter Road. The 9-acre lot at Avalon Road and Lake Hamlin Trail adds two 12,000-square-foot and four 5,000-square-foot buildings; preleasing starts mid-to-late 2026 with delivery in 2027. A later phase calls for a 93,573-square-foot self-storage facility and two 10,000-square-foot office buildings.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-04",
+        "precision": "month",
+        "title": "Status: filed",
+        "detail": "Plans were filed recently with the county",
+        "kind": "status",
+        "sourceIds": [
+          "gs-medical"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "gs-medical",
+        "url": "https://www.growthspotter.com/2026/04/21/next-phase-of-hamlin-medical-offices-project-advances-in-horizon-west/",
+        "title": "www.growthspotter.com/2026/04/21/next-phase-of-hamlin-medical-offices-project-advances-in-horizon-west/",
+        "publisher": "GrowthSpotter",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-04-21"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-09-15T19:41:28.131Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
+      "confidence": "low",
+      "archived": false,
+      "needsReview": []
+    }
+  },
+  {
+    "id": "home-depot-horizon-west",
+    "slug": "home-depot-horizon-west",
+    "name": "Home Depot (Horizon West)",
+    "aliases": [
+      "Home Depot"
+    ],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-03",
+        "datePrecision": "month",
+        "sourceIds": [
+          "gs-homedepot"
+        ]
+      },
+      {
+        "status": "proposed",
+        "date": "2026-03-17",
+        "datePrecision": "day",
+        "note": "First reported",
+        "sourceIds": [
+          "gs-homedepot"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Horizon West at the Lake County line, across from the future Valencia College campus"
+    },
+    "summary": "Home Depot has filed site plans for a new store in Horizon West at the Lake County line, across from the future Valencia College campus.",
+    "description": "Site plans filed with Orange County in March 2026 show a Home Depot store planned for Horizon West near the Lake County line, across from the future Valencia College Horizon West campus. It would be the second big-box home improvement store planned for the area alongside the Lowe's at Hamlin Town Center.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-03",
+        "precision": "month",
+        "title": "Status: filed",
+        "detail": "Site plans filed with Orange County",
+        "kind": "status",
+        "sourceIds": [
+          "gs-homedepot"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "gs-homedepot",
+        "url": "https://www.growthspotter.com/2026/03/17/home-depot-eyes-new-store-in-horizon-west-at-lake-county-line/",
+        "title": "www.growthspotter.com/2026/03/17/home-depot-eyes-new-store-in-horizon-west-at-lake-county-line/",
+        "publisher": "GrowthSpotter",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-03-17"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-09-15T19:41:28.131Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
+      "confidence": "low",
+      "archived": false,
+      "needsReview": []
+    }
+  },
+  {
+    "id": "the-station-at-hamlin",
+    "slug": "the-station-at-hamlin",
+    "name": "The Station at Hamlin",
+    "aliases": [
+      "Station at Hamlin apartments"
+    ],
+    "type": "residential",
+    "category": "Residential Community",
+    "status": "approved",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "approved",
+        "date": "2026-06",
+        "datePrecision": "month",
+        "sourceIds": [
+          "gs-station"
+        ]
+      },
+      {
+        "status": "proposed",
+        "date": "2026-06-09",
+        "datePrecision": "day",
+        "note": "First reported",
+        "sourceIds": [
+          "gs-station"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Avalon Road & Lake Hamlin Trail extension"
+    },
+    "size": {
+      "value": 373,
+      "unit": "units",
+      "raw": "373 units"
+    },
+    "summary": "373-unit apartment community near Avalon Road and the Lake Hamlin Trail extension, financed with a $70 million construction loan.",
+    "description": "The developer of The Station at Hamlin secured a $70 million construction loan in June 2026 to build a 373-unit apartment community near the intersection of Avalon Road and the extension of Lake Hamlin Trail in Horizon West.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-06",
+        "precision": "month",
+        "title": "Status: approved",
+        "detail": "Developer lands $70M loan to build 373-unit Horizon West community",
+        "kind": "status",
+        "sourceIds": [
+          "gs-station"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "gs-station",
+        "url": "https://www.growthspotter.com/2026/06/09/developer-lands-70m-loan-to-build-373-unit-horizon-west-community/",
+        "title": "www.growthspotter.com/2026/06/09/developer-lands-70m-loan-to-build-373-unit-horizon-west-community/",
+        "publisher": "GrowthSpotter",
+        "kind": "news",
+        "retrievedAt": "2026-09-15T19:41:28.209Z",
+        "publishedAt": "2026-06-09"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-09-15T19:41:28.131Z",
+      "updatedAt": "2026-09-15T19:41:28.131Z",
+      "lastVerifiedAt": "2026-09-15T19:41:28.131Z",
+      "confidence": "low",
+      "archived": false,
+      "needsReview": []
     }
   }
 ]

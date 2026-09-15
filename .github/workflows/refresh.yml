@@ -1,8 +1,8 @@
 name: Nightly data refresh
 
+# Manual dispatch only. The owner updates data from Claude Code sessions (see CLAUDE.md) to avoid API billing.
+# To turn the nightly schedule back on, add:  schedule: [{ cron: '15 7 * * *' }]
 on:
-  schedule:
-    - cron: '15 7 * * *' # 03:15 America/New_York during EDT (04:15 EST)
   workflow_dispatch:
     inputs:
       mode:

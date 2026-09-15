@@ -49,7 +49,8 @@ export function mergeFacts(existing: Project[], facts: FactWithSource[], opts: M
       if (projects.some((x) => x.slug === slug)) continue;
       p = {
         id: slug, slug, name: f.projectName, aliases: f.aliases, type: f.newProject.type, category: f.newProject.category, status: 'proposed', statusConfidence: 'low',
-        statusHistory: [], location: { description: f.location.description, address: f.location.address }, summary: f.newProject.summary.slice(0, 200), description: f.newProject.description,
+        statusHistory: [{ status: 'proposed', date: (f.publishedAt ?? opts.now).slice(0, f.publishedAt && f.publishedAt.length <= 7 ? 7 : 10), datePrecision: f.publishedAt && f.publishedAt.length <= 7 ? 'month' : 'day', note: 'First reported', sourceIds: [f.sourceId] }],
+        location: { description: f.location.description, address: f.location.address }, summary: f.newProject.summary.slice(0, 200), description: f.newProject.description,
         permits: [], milestones: [], images: [], sources: [], meta: { createdAt: opts.now, updatedAt: opts.now, lastVerifiedAt: opts.now, confidence: 'low', archived: false, needsReview: ['new-unverified'] },
       } as Project;
       projects.push(p); created.push(slug); log(`merge: created ${slug} from ${f.publisher}`);

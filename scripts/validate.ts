@@ -24,8 +24,10 @@ export function validateProjects(input: unknown, opts: ValidationOptions = {}): 
     const prev = opts.previous;
     if (!opts.allowShrink && projects.length < prev.length) problems.push(`project count shrank ${prev.length} → ${projects.length}`);
     for (const old of prev) if (!slugs.has(old.slug)) problems.push(`project disappeared: ${old.slug}`);
-    const prevMap = new Map(prev.map((p) => [p.slug, JSON.stringify(p)]));
-    const changed = projects.filter((p) => prevMap.has(p.slug) && prevMap.get(p.slug) !== JSON.stringify(p)).length + (projects.length - prev.length);
+    // Verification timestamps are bookkeeping, not content: exclude them from the change ratio.
+    const fingerprint = (p: Project) => JSON.stringify({ ...p, meta: { ...p.meta, updatedAt: undefined, lastVerifiedAt: undefined } });
+    const prevMap = new Map(prev.map((p) => [p.slug, fingerprint(p)]));
+    const changed = projects.filter((p) => prevMap.has(p.slug) && prevMap.get(p.slug) !== fingerprint(p)).length + (projects.length - prev.length);
     const ratio = prev.length ? changed / prev.length : 0;
     if (ratio > (opts.maxChangedRatio ?? 0.3) && prev.length >= 10) problems.push(`suspicious: ${(ratio * 100).toFixed(0)}% of projects changed in one run (limit ${((opts.maxChangedRatio ?? 0.3) * 100).toFixed(0)}%)`);
     for (const p of projects) { const o = prev.find((x) => x.slug === p.slug); if (o && o.status === 'open' && p.status !== 'open' && !p.meta.archived) problems.push(`${p.slug}: regressed from open to ${p.status}`); }

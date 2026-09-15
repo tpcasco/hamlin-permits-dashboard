@@ -1,5 +1,562 @@
 [
   {
+    "id": "2026-09-15-tj-maxx-status-change-0",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "tj-maxx",
+    "projectSlug": "tj-maxx",
+    "projectName": "TJ Maxx",
+    "kind": "status-change",
+    "summary": "Now open (Mar 1, 2026).",
+    "diff": [
+      {
+        "field": "status",
+        "from": "construction",
+        "to": "open"
+      }
+    ],
+    "sourceIds": [
+      "hwh-tjmaxx-open"
+    ]
+  },
+  {
+    "id": "2026-09-15-tj-maxx-field-update-1",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "tj-maxx",
+    "projectSlug": "tj-maxx",
+    "projectName": "TJ Maxx",
+    "kind": "field-update",
+    "summary": "Address updated.",
+    "diff": [
+      {
+        "field": "location.address",
+        "to": "5758 Hamlin Groves Trail"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-dutch-bros-coffee-status-change-2",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "dutch-bros-coffee",
+    "projectSlug": "dutch-bros-coffee",
+    "projectName": "Dutch Bros Coffee",
+    "kind": "status-change",
+    "summary": "Now open (Jun 17, 2026).",
+    "diff": [
+      {
+        "field": "status",
+        "from": "construction",
+        "to": "open"
+      }
+    ],
+    "sourceIds": [
+      "obs-dutch-open"
+    ]
+  },
+  {
+    "id": "2026-09-15-dutch-bros-coffee-field-update-3",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "dutch-bros-coffee",
+    "projectSlug": "dutch-bros-coffee",
+    "projectName": "Dutch Bros Coffee",
+    "kind": "field-update",
+    "summary": "Address updated; Website added; Hours added; Price range added; Offerings updated.",
+    "diff": [
+      {
+        "field": "location.address",
+        "from": "5215 Hamlin Groves Trail",
+        "to": "5205 Hamlin Groves Trail"
+      },
+      {
+        "field": "business.website",
+        "to": "https://www.dutchbros.com/locations/fl/winter-garden/5205-hamlin-groves-trl."
+      },
+      {
+        "field": "business.hours",
+        "from": "null",
+        "to": "[{\"day\":\"sun\",\"open\":\"05:00\",\"close\":\"22:00\"},{\"day\":\"mon\",\"open\":\"05:00\",\"close\":\"22:00\"},{\"day\":\"tue\",\"open\":\"05:00\",\"close\":\"22:00\"},{\"day\":\"wed\",\"open\":\"05:00\",\"close\":\"22:00\"},{\"day\":\"thu\",\"open\":\"05:00\",\"close\":\"22:00\"},{\"day\":\"fri\",\"open\":\"05:00\",\"close\":\"23:00\"},{\"day\":\"sat\",\"open\":\"05:00\",\"close\":\"23:00\"}]"
+      },
+      {
+        "field": "business.priceRange",
+        "to": "$"
+      },
+      {
+        "field": "business.offerings",
+        "from": "[]",
+        "to": "[\"Specialty coffee\",\"Smoothies\",\"Teas\",\"Freezes\",\"Lemonade\",\"Nitro Cold Brew\",\"Rebel energy drinks\",\"Dual-lane drive-thru and walk-up window\"]"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-tiki-docks-restaurant-date-change-4",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "tiki-docks-restaurant",
+    "projectSlug": "tiki-docks-restaurant",
+    "projectName": "Tiki Docks Restaurant",
+    "kind": "date-change",
+    "summary": "Expected opening set to 2026.",
+    "diff": [
+      {
+        "field": "expectedCompletion.date",
+        "to": "2026"
+      }
+    ],
+    "sourceIds": [
+      "whatnow-tiki"
+    ]
+  },
+  {
+    "id": "2026-09-15-tiki-docks-restaurant-field-update-5",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "tiki-docks-restaurant",
+    "projectSlug": "tiki-docks-restaurant",
+    "projectName": "Tiki Docks Restaurant",
+    "kind": "field-update",
+    "summary": "Size updated.",
+    "diff": [
+      {
+        "field": "size",
+        "to": "8,700 sq ft"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-outback-steakhouse-status-change-6",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "outback-steakhouse",
+    "projectSlug": "outback-steakhouse",
+    "projectName": "Outback Steakhouse",
+    "kind": "status-change",
+    "summary": "Now open (Mar 3, 2026).",
+    "diff": [
+      {
+        "field": "status",
+        "from": "construction",
+        "to": "open"
+      }
+    ],
+    "sourceIds": [
+      "hwi-outback-open"
+    ]
+  },
+  {
+    "id": "2026-09-15-vystar-credit-union-hamlin-branch-status-change-7",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "vystar-credit-union-hamlin-branch",
+    "projectSlug": "vystar-credit-union-hamlin-branch",
+    "projectName": "VyStar Credit Union (Hamlin Branch)",
+    "kind": "status-change",
+    "summary": "Now open (Mar 11, 2026).",
+    "diff": [
+      {
+        "field": "status",
+        "from": "construction",
+        "to": "open"
+      }
+    ],
+    "sourceIds": [
+      "vystar-site"
+    ]
+  },
+  {
+    "id": "2026-09-15-vystar-credit-union-hamlin-branch-field-update-8",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "vystar-credit-union-hamlin-branch",
+    "projectSlug": "vystar-credit-union-hamlin-branch",
+    "projectName": "VyStar Credit Union (Hamlin Branch)",
+    "kind": "field-update",
+    "summary": "Website added.",
+    "diff": [
+      {
+        "field": "business.website",
+        "to": "https://vystarcu.org/locations/hamlin-branch"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-goddard-school-daycare-date-change-9",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "goddard-school-daycare",
+    "projectSlug": "goddard-school-daycare",
+    "projectName": "Goddard School (Daycare)",
+    "kind": "date-change",
+    "summary": "Expected opening set to Jun 2026.",
+    "diff": [
+      {
+        "field": "expectedCompletion.date",
+        "to": "2026-06"
+      }
+    ],
+    "sourceIds": [
+      "goddard-site"
+    ]
+  },
+  {
+    "id": "2026-09-15-goddard-school-daycare-field-update-10",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "goddard-school-daycare",
+    "projectSlug": "goddard-school-daycare",
+    "projectName": "Goddard School (Daycare)",
+    "kind": "field-update",
+    "summary": "Address updated; Website added.",
+    "diff": [
+      {
+        "field": "location.address",
+        "to": "4975 Lake Hamlin Trail"
+      },
+      {
+        "field": "business.website",
+        "to": "https://www.wgpreschools.com/"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-windermere-prep-school-k-5-campus-field-update-11",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "windermere-prep-school-k-5-campus",
+    "projectSlug": "windermere-prep-school-k-5-campus",
+    "projectName": "Windermere Prep School (K-5 Campus)",
+    "kind": "field-update",
+    "summary": "Address updated.",
+    "diff": [
+      {
+        "field": "location.address",
+        "to": "15765 New Independence Parkway"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-tropical-smoothie-cafe-status-change-12",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "tropical-smoothie-cafe",
+    "projectSlug": "tropical-smoothie-cafe",
+    "projectName": "Tropical Smoothie Cafe",
+    "kind": "status-change",
+    "summary": "Now open (Apr 2026).",
+    "diff": [
+      {
+        "field": "status",
+        "from": "construction",
+        "to": "open"
+      }
+    ],
+    "sourceIds": [
+      "obs-tropical-open"
+    ]
+  },
+  {
+    "id": "2026-09-15-tropical-smoothie-cafe-field-update-13",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "tropical-smoothie-cafe",
+    "projectSlug": "tropical-smoothie-cafe",
+    "projectName": "Tropical Smoothie Cafe",
+    "kind": "field-update",
+    "summary": "Address updated; Website added; Offerings updated.",
+    "diff": [
+      {
+        "field": "location.address",
+        "to": "15503 Sunquat Drive"
+      },
+      {
+        "field": "business.website",
+        "to": "https://locations.tropicalsmoothiecafe.com/fl/winter-garden/15503-sunquat-drive"
+      },
+      {
+        "field": "business.offerings",
+        "from": "[]",
+        "to": "[\"Smoothies\",\"Acai bowls\",\"Flatbreads\",\"Wraps\",\"Salads\",\"In-store pickup\",\"Curbside\",\"Delivery\"]"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-swig-dirty-soda-status-change-14",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "swig-dirty-soda",
+    "projectSlug": "swig-dirty-soda",
+    "projectName": "Swig Dirty Soda",
+    "kind": "status-change",
+    "summary": "Filed → Under construction.",
+    "diff": [
+      {
+        "field": "status",
+        "from": "filed",
+        "to": "construction"
+      }
+    ],
+    "sourceIds": [
+      "obs-swig"
+    ]
+  },
+  {
+    "id": "2026-09-15-swig-dirty-soda-date-change-15",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "swig-dirty-soda",
+    "projectSlug": "swig-dirty-soda",
+    "projectName": "Swig Dirty Soda",
+    "kind": "date-change",
+    "summary": "Expected opening set to Summer 2026.",
+    "diff": [
+      {
+        "field": "expectedCompletion.date",
+        "to": "2026-07"
+      }
+    ],
+    "sourceIds": [
+      "obs-swig"
+    ]
+  },
+  {
+    "id": "2026-09-15-filigree-coffee-status-change-16",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "filigree-coffee",
+    "projectSlug": "filigree-coffee",
+    "projectName": "Filigree Coffee",
+    "kind": "status-change",
+    "summary": "Now open (Jan 23, 2026).",
+    "diff": [
+      {
+        "field": "status",
+        "from": "construction",
+        "to": "open"
+      }
+    ],
+    "sourceIds": [
+      "obs-filigree"
+    ]
+  },
+  {
+    "id": "2026-09-15-filigree-coffee-field-update-17",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "filigree-coffee",
+    "projectSlug": "filigree-coffee",
+    "projectName": "Filigree Coffee",
+    "kind": "field-update",
+    "summary": "Address updated.",
+    "diff": [
+      {
+        "field": "location.address",
+        "to": "16016 New Independence Pkwy, Suite 110"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-westhaven-at-ovation-toll-brothers-date-change-18",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "westhaven-at-ovation-toll-brothers",
+    "projectSlug": "westhaven-at-ovation-toll-brothers",
+    "projectName": "Westhaven at Ovation (Toll Brothers)",
+    "kind": "date-change",
+    "summary": "Expected opening moved from Summer 2026 to End of 2026.",
+    "diff": [
+      {
+        "field": "expectedCompletion.date",
+        "from": "2026-07",
+        "to": "2026-12"
+      }
+    ],
+    "sourceIds": [
+      "toll-site"
+    ]
+  },
+  {
+    "id": "2026-09-15-westhaven-at-ovation-toll-brothers-field-update-19",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "westhaven-at-ovation-toll-brothers",
+    "projectSlug": "westhaven-at-ovation-toll-brothers",
+    "projectName": "Westhaven at Ovation (Toll Brothers)",
+    "kind": "field-update",
+    "summary": "Size updated; Website added.",
+    "diff": [
+      {
+        "field": "size",
+        "to": "368 homes"
+      },
+      {
+        "field": "business.website",
+        "to": "https://www.tollbrothers.com/luxury-homes-for-sale/Florida/Westhaven-at-Ovation"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-new-independence-pkwy-extension-status-change-20",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "new-independence-pkwy-extension",
+    "projectSlug": "new-independence-pkwy-extension",
+    "projectName": "New Independence Pkwy Extension",
+    "kind": "status-change",
+    "summary": "Proposed → Under construction.",
+    "diff": [
+      {
+        "field": "status",
+        "from": "proposed",
+        "to": "construction"
+      }
+    ],
+    "sourceIds": [
+      "ocfl-nip"
+    ]
+  },
+  {
+    "id": "2026-09-15-new-independence-pkwy-extension-date-change-21",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "new-independence-pkwy-extension",
+    "projectSlug": "new-independence-pkwy-extension",
+    "projectName": "New Independence Pkwy Extension",
+    "kind": "date-change",
+    "summary": "Expected opening set to Early 2027.",
+    "diff": [
+      {
+        "field": "expectedCompletion.date",
+        "to": "2027-02"
+      }
+    ],
+    "sourceIds": [
+      "news13-nip"
+    ]
+  },
+  {
+    "id": "2026-09-15-sr-516-toll-road-status-change-22",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "sr-516-toll-road",
+    "projectSlug": "sr-516-toll-road",
+    "projectName": "SR-516 Toll Road",
+    "kind": "status-change",
+    "summary": "Proposed → Under construction.",
+    "diff": [
+      {
+        "field": "status",
+        "from": "proposed",
+        "to": "construction"
+      }
+    ],
+    "sourceIds": [
+      "hoodline-516"
+    ]
+  },
+  {
+    "id": "2026-09-15-sr-516-toll-road-date-change-23",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "sr-516-toll-road",
+    "projectSlug": "sr-516-toll-road",
+    "projectName": "SR-516 Toll Road",
+    "kind": "date-change",
+    "summary": "Expected opening set to 2029.",
+    "diff": [
+      {
+        "field": "expectedCompletion.date",
+        "to": "2029"
+      }
+    ],
+    "sourceIds": [
+      "hoodline-516"
+    ]
+  },
+  {
+    "id": "2026-09-15-sr-516-toll-road-field-update-24",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "sr-516-toll-road",
+    "projectSlug": "sr-516-toll-road",
+    "projectName": "SR-516 Toll Road",
+    "kind": "field-update",
+    "summary": "Website added.",
+    "diff": [
+      {
+        "field": "business.website",
+        "to": "https://www.cfxway.com/sr-516/"
+      }
+    ],
+    "sourceIds": []
+  },
+  {
+    "id": "2026-09-15-biscuit-belly-replacing-maple-street-biscuit-company-new-25",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "biscuit-belly-replacing-maple-street-biscuit-company",
+    "projectSlug": "biscuit-belly-replacing-maple-street-biscuit-company",
+    "projectName": "Biscuit Belly (replacing Maple Street Biscuit Company)",
+    "kind": "new",
+    "summary": "New project tracked: restaurant / cafe at Hamlin Town Center, 16027 New Independence Pkwy #100 (current Maple Street Biscuit Company).",
+    "diff": [],
+    "sourceIds": [
+      "obs-biscuit"
+    ]
+  },
+  {
+    "id": "2026-09-15-hamlin-medical-offices-phase-2-new-26",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "hamlin-medical-offices-phase-2",
+    "projectSlug": "hamlin-medical-offices-phase-2",
+    "projectName": "Hamlin Medical Offices (Phase 2)",
+    "kind": "new",
+    "summary": "New project tracked: healthcare / pharmacy at Avalon Road & Lake Hamlin Trail (9-acre lot), near Avalon Road & Porter Road.",
+    "diff": [],
+    "sourceIds": [
+      "gs-medical"
+    ]
+  },
+  {
+    "id": "2026-09-15-home-depot-horizon-west-new-27",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "home-depot-horizon-west",
+    "projectSlug": "home-depot-horizon-west",
+    "projectName": "Home Depot (Horizon West)",
+    "kind": "new",
+    "summary": "New project tracked: retail at Horizon West at the Lake County line, across from the future Valencia College campus.",
+    "diff": [],
+    "sourceIds": [
+      "gs-homedepot"
+    ]
+  },
+  {
+    "id": "2026-09-15-the-station-at-hamlin-new-28",
+    "date": "2026-09-15T19:41:28.131Z",
+    "runId": "manual-2026-09-15",
+    "projectId": "the-station-at-hamlin",
+    "projectSlug": "the-station-at-hamlin",
+    "projectName": "The Station at Hamlin",
+    "kind": "new",
+    "summary": "New project tracked: residential community at Avalon Road & Lake Hamlin Trail extension.",
+    "diff": [],
+    "sourceIds": [
+      "gs-station"
+    ]
+  },
+  {
     "id": "2026-09-15-site-relaunch",
     "date": "2026-09-15T19:00:00.000Z",
     "runId": "migration-2026-09-15",
@@ -9,6 +566,8 @@
     "kind": "new",
     "summary": "Site relaunched with 34 projects migrated from the February 2026 tracker. Nightly automated updates begin once source adapters are enabled.",
     "diff": [],
-    "sourceIds": ["legacy-tracker-2026-02"]
+    "sourceIds": [
+      "legacy-tracker-2026-02"
+    ]
   }
 ]
