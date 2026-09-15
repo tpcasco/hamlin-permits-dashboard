@@ -267,7 +267,7 @@
     ],
     "location": {
       "address": "5205 Hamlin Groves Trail",
-      "description": "5215 Hamlin Groves Trail",
+      "description": "5205 Hamlin Groves Trail",
       "lat": 28.4232,
       "lng": -81.6205,
       "geocodeConfidence": "low",
@@ -360,16 +360,6 @@
         "title": "Construction underway",
         "detail": "Construction started Oct 2025 — Est. completion May 2026",
         "kind": "status",
-        "sourceIds": [
-          "legacy-tracker-2026-02"
-        ]
-      },
-      {
-        "date": "2025-10",
-        "precision": "month",
-        "title": "Expected groundbreaking",
-        "detail": "Construction started Oct 2025",
-        "kind": "other",
         "sourceIds": [
           "legacy-tracker-2026-02"
         ]
@@ -618,7 +608,7 @@
     ],
     "location": {
       "address": "16323 New Independence Parkway",
-      "description": "16323 New Independence Parkway (across from Starbucks)",
+      "description": "16323 New Independence Parkway",
       "lat": 28.4325,
       "lng": -81.6195,
       "geocodeConfidence": "low",
@@ -912,7 +902,7 @@
     ],
     "location": {
       "address": "15903 New Independence Pkwy",
-      "description": "15903 New Independence Pkwy (near Hamlin Groves Trail)",
+      "description": "15903 New Independence Pkwy",
       "lat": 28.4232,
       "lng": -81.6205,
       "geocodeConfidence": "low",

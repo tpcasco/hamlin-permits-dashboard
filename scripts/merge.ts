@@ -100,7 +100,7 @@ export function mergeFacts(existing: Project[], facts: FactWithSource[], opts: M
     }
     // Simple scalar fields with tier precedence.
     const scalar: Array<[string, (f: FactWithSource) => void, () => number]> = [
-      ['address', (f) => { p.location.address = f.value; }, () => 0],
+      ['address', (f) => { if (/^\d/.test(p.location.description) || p.location.description === p.location.address) p.location.description = f.value; p.location.address = f.value; }, () => 0],
       ['developer', (f) => { p.developer = f.value; }, () => 0],
       ['contractor', (f) => { p.contractor = f.value; }, () => 0],
       ['category', (f) => { p.category = f.value; }, () => 4],
