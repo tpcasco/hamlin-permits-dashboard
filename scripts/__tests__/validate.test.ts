@@ -3,10 +3,11 @@ import { readFileSync } from 'node:fs';
 import { ProjectsFileSchema, type Project } from '../../src/schemas/project';
 import { validateProjects } from '../validate';
 
-const projects: Project[] = ProjectsFileSchema.parse(JSON.parse(readFileSync('data/projects.json', 'utf8')));
+const projects: Project[] = ProjectsFileSchema.parse(JSON.parse(readFileSync('scripts/fixtures/projects.sample.json', 'utf8')));
 
 describe('validateProjects', () => {
-  it('accepts the committed data', () => { expect(validateProjects(projects).length).toBe(projects.length); });
+  it('accepts the fixture', () => { expect(validateProjects(projects).length).toBe(projects.length); });
+  it('accepts the committed live data', () => { const live = JSON.parse(readFileSync('data/projects.json', 'utf8')); expect(validateProjects(live).length).toBe(live.length); });
   it('rejects a lost project', () => { expect(() => validateProjects(projects.slice(1), { previous: projects })).toThrow(/disappeared/); });
   it('rejects too many changes in one run', () => {
     const mutated = projects.map((p) => ({ ...p, description: p.description + ' (edited)' }));

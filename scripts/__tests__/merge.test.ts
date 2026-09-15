@@ -4,7 +4,7 @@ import { ProjectsFileSchema, type Project } from '../../src/schemas/project';
 import { mergeFacts, findMatch } from '../merge';
 import type { FactWithSource } from '../types';
 
-const projects: Project[] = ProjectsFileSchema.parse(JSON.parse(readFileSync('data/projects.json', 'utf8')));
+const projects: Project[] = ProjectsFileSchema.parse(JSON.parse(readFileSync('scripts/fixtures/projects.sample.json', 'utf8')));
 const NOW = '2026-09-16T07:15:00.000Z';
 const base = (over: Partial<FactWithSource>): FactWithSource => ({ projectName: 'Dutch Bros Coffee', aliases: [], field: 'status', value: 'open', quote: 'Dutch Bros opened its doors Tuesday.', confidence: 'high', sourceId: 'news-1', sourceKind: 'news', publisher: 'Horizon West News & Info', url: 'https://www.horizonwestinfo.com/dutch-bros-opens', publishedAt: '2026-07-14', ...over });
 const run = (facts: FactWithSource[]) => mergeFacts(projects, facts, { now: NOW, runId: 'test' });

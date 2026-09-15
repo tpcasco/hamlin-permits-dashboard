@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { ProjectsFileSchema, type Project } from '../../src/schemas/project';
 import { buildChangelog } from '../changelog';
 
-const prev: Project[] = ProjectsFileSchema.parse(JSON.parse(readFileSync('data/projects.json', 'utf8')));
+const prev: Project[] = ProjectsFileSchema.parse(JSON.parse(readFileSync('scripts/fixtures/projects.sample.json', 'utf8')));
 
 describe('buildChangelog', () => {
   it('is empty when nothing changed', () => { expect(buildChangelog(prev, prev, 'r', '2026-09-16T00:00:00.000Z')).toEqual([]); });
