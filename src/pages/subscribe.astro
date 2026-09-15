@@ -1,0 +1,50 @@
+---
+import Base from '@/layouts/Base.astro';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const shareText = encodeURIComponent('Track everything being built in Hamlin: permits, construction, and opening dates.');
+---
+<Base title="Subscribe" description="Get Hamlin development updates by calendar, RSS, or JSON feed.">
+  <div class="section">
+    <h1>Subscribe</h1>
+    <p class="muted">No accounts, no newsletter list. Pick the format your phone or reader already understands.</p>
+    <div class="grid">
+      <section class="card opt">
+        <h2>📅 Openings calendar</h2>
+        <p class="small muted">Every expected opening as an all-day event, updated as dates change. Subscribe once; it keeps syncing.</p>
+        <a class="btn btn-primary" href={`webcal://${site.replace(/^https?:\/\//, '')}/openings.ics`}>Add to calendar</a>
+        <details class="small"><summary>Manual setup</summary><p>Google Calendar: Other calendars → From URL → paste <code>{site}/openings.ics</code>. Apple Calendar: File → New Calendar Subscription.</p></details>
+      </section>
+      <section class="card opt">
+        <h2>📰 RSS feed</h2>
+        <p class="small muted">Every change the nightly update makes, as it happens. Works with Feedly, NetNewsWire, Inoreader, and most email clients.</p>
+        <a class="btn" href="/feed.xml">feed.xml</a> <a class="btn" href="/feed.json">JSON Feed</a>
+        <details class="small"><summary>Want it by email?</summary><p>Free RSS-to-email services such as Blogtrottr or Feedrabbit will deliver <code>{site}/feed.xml</code> to your inbox daily.</p></details>
+      </section>
+      <section class="card opt">
+        <h2>📣 Share with neighbors</h2>
+        <p class="small muted">The fastest way to keep the community informed is to pass it on.</p>
+        <div class="row">
+          <a class="btn" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(site + '/')}`} rel="noopener">Facebook</a>
+          <a class="btn" href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(site + '/')}&text=${shareText}`} rel="noopener">X</a>
+          <a class="btn" href={`mailto:?subject=${encodeURIComponent('Hamlin Development Tracker')}&body=${shareText}%0A%0A${encodeURIComponent(site + '/')}`}>Email</a>
+          <button class="btn" data-copy={site + '/'}>Copy link</button>
+        </div>
+      </section>
+      <section class="card opt">
+        <h2>🛠️ For builders</h2>
+        <p class="small muted">All data is open: <a href="/projects.geojson">projects.geojson</a> for maps, or the <a href="https://github.com/tpcasco/hamlin-permits-dashboard" rel="noopener">GitHub repository</a> for the full JSON and the nightly pipeline.</p>
+      </section>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) => b.addEventListener('click', async () => { await navigator.clipboard.writeText(b.dataset.copy!); b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy link'), 1500); }));
+  </script>
+</Base>
+<style>
+  .opt { padding: 18px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .opt h2 { margin: 0; }
+  .opt p { margin: 0; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  details summary { cursor: pointer; color: var(--accent-text); }
+  code { background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+</style>
