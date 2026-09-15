@@ -1,0 +1,18 @@
+---
+import Base from '@/layouts/Base.astro';
+const LINKS = [
+  ['/coming-soon', 'Coming soon', 'Expected openings by month, with a calendar you can subscribe to.'],
+  ['/whats-new', "What's new", 'Every change the nightly update made, newest first.'],
+  ['/stats', 'Neighborhood stats', 'How many projects are in each stage and how long stages really take.'],
+  ['/how-permits-work', 'How permits work', 'The five stages, the two governments, and where to look things up yourself.'],
+  ['/subscribe', 'Subscribe', 'RSS, JSON feed, and calendar links.'],
+  ['/status', 'Data status', 'When the last update ran and which sources are healthy.'],
+];
+---
+<Base title="More">
+  <div class="section">
+    <h1>More</h1>
+    <div class="grid">{LINKS.map(([href, t, d]) => <a class="card m" href={href}><h3>{t}</h3><p class="small muted">{d}</p></a>)}</div>
+  </div>
+</Base>
+<style>.m{padding:16px;color:var(--text);text-decoration:none}.m:hover{border-color:var(--accent);text-decoration:none}.m p{margin:0}</style>

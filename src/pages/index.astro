@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { isActive, sortProjects } from '@/lib/projects';
+import { countByStatus } from '@/lib/stats';
+const all = (await getCollection('projects')).map((e) => e.data).filter(isActive);
+const counts = countByStatus(all);
+const recent = sortProjects(all, 'updated').slice(0, 6);
+---
+<Base title="Home">
+  <div class="section">
+    <h1>What's being built in Hamlin</h1>
+    <div class="stat-row">
+      <div class="card stat"><div class="v" style="color:var(--construction)">{counts.construction}</div><div class="l">Under construction</div></div>
+      <div class="card stat"><div class="v" style="color:var(--approved)">{counts.approved}</div><div class="l">Approved</div></div>
+      <div class="card stat"><div class="v" style="color:var(--filed)">{counts.filed}</div><div class="l">Filed</div></div>
+      <div class="card stat"><div class="v" style="color:var(--proposed)">{counts.proposed}</div><div class="l">Proposed</div></div>
+      <div class="card stat"><div class="v" style="color:var(--open)">{counts.open}</div><div class="l">Open</div></div>
+    </div>
+  </div>
+  <div class="section"><div class="section-head"><h2>Recently updated</h2><a href="/explore">See all</a></div><div class="grid">{recent.map((p) => <ProjectCard project={p} />)}</div></div>
+</Base>

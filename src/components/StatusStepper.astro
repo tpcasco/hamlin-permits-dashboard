@@ -1,0 +1,55 @@
+---
+import type { Project } from '@/schemas/project';
+import { STAGE_ORDER } from '@/schemas/project';
+import { STATUS_LABEL, STATUS_HELP, stageDate, stageIndex, daysInCurrentStage, TRANSITIONS, typicalOrMeasured, stageDurations } from '@/lib/projects';
+import { formatPrecise, humanDuration } from '@/lib/dates';
+interface Props { project: Project; all: Project[] }
+const { project: p, all } = Astro.props;
+const current = stageIndex(p.status);
+const days = daysInCurrentStage(p);
+const measured = stageDurations(p);
+const offRamp = current === -1;
+---
+<section class="stepper card" aria-label="Project status">
+  <ol>
+    {STAGE_ORDER.map((stage, i) => {
+      const ev = stageDate(p, stage);
+      const state = offRamp ? 'todo' : i < current ? 'done' : i === current ? 'current' : 'todo';
+      const t = TRANSITIONS.find((x) => x.to === stage);
+      const typical = t ? typicalOrMeasured(all, p.category, t.key) : null;
+      const actual = t ? measured[t.key] : undefined;
+      return (
+        <li class={state} aria-current={state === 'current' ? 'step' : undefined}>
+          <span class="dot" aria-hidden="true">{state === 'done' ? '✓' : i + 1}</span>
+          <div class="txt">
+            <div class="lbl">{STATUS_LABEL[stage]}</div>
+            <div class="date small">{ev && ev.datePrecision !== 'estimate' ? formatPrecise(ev.date, ev.datePrecision) : state === 'todo' ? '—' : state === 'current' ? 'Since at least ' + formatPrecise(ev?.date ?? '2026-02', 'month') : 'Date not recorded'}</div>
+            {state === 'current' && days != null && <div class="small muted">{humanDuration(days)} in this stage</div>}
+            {t && (actual != null ? <div class="small muted">Took {humanDuration(actual)}</div> : state === 'todo' && typical ? <div class="small muted">Typical: {humanDuration(typical.days)}{typical.measured ? '' : '*'}</div> : null)}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+  <p class="help small muted">{offRamp ? `${STATUS_LABEL[p.status]}: ${STATUS_HELP[p.status]}` : STATUS_HELP[p.status]} {Object.keys(measured).length === 0 && <span>* Typical durations are category estimates until enough local projects are measured.</span>}</p>
+</section>
+<style>
+  .stepper { padding: 16px; }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; position: relative; }
+  ol::before { content: ""; position: absolute; left: 10%; right: 10%; top: 14px; height: 3px; background: var(--border); z-index: 0; }
+  li { position: relative; z-index: 1; text-align: center; }
+  .dot { width: 30px; height: 30px; border-radius: 50%; display: inline-grid; place-items: center; font-weight: 800; font-size: .8rem; background: var(--surface); border: 3px solid var(--border); color: var(--text-3); }
+  li.done .dot { background: var(--open); border-color: var(--open); color: #fff; }
+  li.current .dot { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 0 0 6px var(--accent-soft); }
+  .txt { margin-top: 6px; }
+  .lbl { font-size: .78rem; font-weight: 700; }
+  li.todo .lbl { color: var(--text-3); }
+  .date { color: var(--text-2); }
+  .help { margin: 12px 0 0; }
+  @media (max-width: 560px) {
+    ol { grid-template-columns: 1fr; gap: 0; }
+    ol::before { left: 14px; right: auto; top: 0; bottom: 0; width: 3px; height: auto; }
+    li { display: flex; gap: 12px; text-align: left; padding: 6px 0; }
+    .txt { margin-top: 2px; }
+  }
+</style>

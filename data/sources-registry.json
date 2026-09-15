@@ -1,0 +1,33 @@
+{
+  "trustedDomains": [
+    "fasttrack.ocfl.net", "orangecountyfl.net", "ocfl.net", "ocgis4.ocfl.net", "vgispublic.ocpafl.org", "ocpafl.org",
+    "bsaonline.com", "cwgdn.com", "wgfl.gov",
+    "horizonwestinfo.com", "horizonwesthappenings.com", "horizonwestmagazine.com", "orangeobserver.com",
+    "growthspotter.com", "orlandosentinel.com", "bizjournals.com", "hamlinfl.com", "boyddevelopment.com"
+  ],
+  "adapters": {
+    "ocfl-gis": { "enabled": true, "kind": "gis", "publisher": "Orange County GIS",
+      "base": "https://ocgis4.ocfl.net/arcgis/rest/services", "services": ["AGOL_Open_Data/MapServer", "Public_Dynamic/MapServer"],
+      "layerKeywords": ["permit", "development", "site plan", "zoning", "case", "commercial", "subdivision"] },
+    "ocpa-parcels": { "enabled": true, "kind": "gis", "publisher": "Orange County Property Appraiser",
+      "base": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Base/MapServer" },
+    "ocfl-fasttrack": { "enabled": true, "kind": "permit", "publisher": "Orange County Fast Track",
+      "base": "https://fasttrack.ocfl.net/OnlineServices/", "searchTerms": ["Hamlin", "Horizon West", "New Independence", "Hamlin Groves", "Avalon Rd", "Hartzog", "Porter Rd"] },
+    "ocfl-drc-agendas": { "enabled": true, "kind": "permit", "publisher": "Orange County Development Review Committee",
+      "base": "https://www.orangecountyfl.net/OpenGovernment/BoardsAndSpecialDistricts/DevelopmentReviewCommittee.aspx" },
+    "winter-garden-bsa": { "enabled": true, "kind": "permit", "publisher": "City of Winter Garden (BS&A Online)",
+      "base": "https://bsaonline.com", "uid": "3123", "searchTerms": ["Hamlin", "Hartzog", "Avalon", "New Independence"] },
+    "horizonwestinfo": { "enabled": true, "kind": "news", "publisher": "Horizon West News & Info",
+      "feeds": ["https://www.horizonwestinfo.com/category/town-center/hamlin/feed/", "https://www.horizonwestinfo.com/feed/"] },
+    "horizonwesthappenings": { "enabled": true, "kind": "news", "publisher": "Horizon West Happenings",
+      "feeds": ["https://horizonwesthappenings.com/feed/"], "pages": ["https://horizonwesthappenings.com/news_posts/businesses-on-the-horizon-whats-coming-to-horizon-west/"] },
+    "horizonwestmagazine": { "enabled": true, "kind": "news", "publisher": "Horizon West Magazine",
+      "feeds": ["https://www.horizonwestmagazine.com/feed/"] },
+    "orangeobserver": { "enabled": true, "kind": "news", "publisher": "West Orange Times & Observer",
+      "feeds": ["https://www.orangeobserver.com/feed/"], "pages": ["https://www.orangeobserver.com/news/west-orange-times-observer/news/"] },
+    "growthspotter": { "enabled": true, "kind": "news", "publisher": "GrowthSpotter", "webSearchOnly": true },
+    "hamlinfl": { "enabled": true, "kind": "business-site", "publisher": "Hamlin (Boyd Development)", "pages": ["https://hamlinfl.com/"] },
+    "business-site": { "enabled": true, "kind": "business-site", "publisher": "Business website" }
+  },
+  "keywords": ["Hamlin", "Horizon West", "Winter Garden", "New Independence", "Hamlin Groves", "Avalon Road", "Hartzog", "Lake Hancock", "Porter Road", "SR 429", "34787"]
+}

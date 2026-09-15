@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import FilterBar from '@/components/explore/FilterBar';
+import { isActive, sortProjects, toClientRecord } from '@/lib/projects';
+const all = (await getCollection('projects')).map((e) => e.data).filter(isActive);
+const projects = sortProjects(all, 'updated');
+const records = projects.map(toClientRecord);
+const categories = [...new Set(projects.map((p) => p.category))].sort();
+---
+<Base title="Explore projects" description="Every tracked project in Hamlin and Horizon West: filter by status, category, and opening window.">
+  <div class="section">
+    <h1>Explore</h1>
+    <p class="muted">{projects.length} projects across Hamlin &amp; Horizon West. Filter, search, or switch to the map.</p>
+    <FilterBar client:load records={records} categories={categories} />
+    <div id="explore-map" hidden class="card map-slot">
+      <slot name="map">
+        <div class="map-fallback"><p class="muted">Map view arrives with the interactive 3D map. <a href="/map">Open the map page</a>.</p></div>
+      </slot>
+    </div>
+    <div id="project-list" class="grid">
+      {projects.map((p) => <div data-project-card={p.slug} class="card-slot"><ProjectCard project={p} /></div>)}
+    </div>
+  </div>
+</Base>
+<style>
+  .card-slot { display: contents; }
+  .card-slot[hidden] { display: none; }
+  .map-slot { min-height: 60vh; margin-bottom: 16px; overflow: hidden; }
+  .map-fallback { padding: 24px; }
+</style>

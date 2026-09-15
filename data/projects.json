@@ -1,0 +1,2411 @@
+[
+  {
+    "id": "lowe-s-home-improvement",
+    "slug": "lowe-s-home-improvement",
+    "name": "Lowe's Home Improvement",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2025-08",
+        "datePrecision": "month",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Hamlin Groves Trail (north of Walmart)",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 134148,
+      "unit": "sqft",
+      "raw": "134,148 sq ft"
+    },
+    "developer": "Lowe's / Boyd Development",
+    "summary": "Big-box home improvement store on a vacant 25-acre site.",
+    "description": "Big-box home improvement store on a vacant 25-acre site. Site plan also includes a future 40,000 sq ft retail building and three commercial outparcels, one approved for VyStar Credit Union.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-08",
+        "precision": "month",
+        "title": "Plans filed",
+        "detail": "Plans filed Aug 2025",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "lowe-s-home-improvement"
+    }
+  },
+  {
+    "id": "tj-maxx",
+    "slug": "tj-maxx",
+    "name": "TJ Maxx",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2026-03-01",
+      "precision": "day",
+      "confidence": "medium",
+      "label": "Grand opening Mar 1, 2026",
+      "sourceIds": [
+        "legacy-tracker-2026-02"
+      ]
+    },
+    "location": {
+      "description": "Hamlin Groves Trail (south of Publix, next to Urban Air)",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 25000,
+      "unit": "sqft",
+      "raw": "25,000 sq ft"
+    },
+    "developer": "Hamlin Retail Partners II / Boyd Development",
+    "summary": "Off-price retail store.",
+    "description": "Off-price retail store. Part of the 'Hamlin South of Publix' retail project. Grand opening scheduled for March 1, 2026.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Under construction — Grand opening Mar 1, 2026",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "scheduled-opening-passed"
+      ],
+      "legacyId": "tj-maxx"
+    }
+  },
+  {
+    "id": "life-time-athletic-club",
+    "slug": "life-time-athletic-club",
+    "name": "Life Time Athletic Club",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Fitness / Recreation",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2025-06",
+        "datePrecision": "month",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "New Independence Pkwy & SR 429 (76 acres)",
+      "lat": 28.4325,
+      "lng": -81.6195,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 80000,
+      "unit": "sqft",
+      "raw": "80,000 sq ft"
+    },
+    "developer": "Life Time / Scott T. Boyd",
+    "summary": "Sports and fitness facility with indoor athletic club, two outdoor pool areas, and eight sports courts including weightlifting and cardio equipment.",
+    "description": "Sports and fitness facility with indoor athletic club, two outdoor pool areas, and eight sports courts including weightlifting and cardio equipment.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-06",
+        "precision": "month",
+        "title": "Plans proposed",
+        "detail": "Pre-application filed Jun 2025",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "life-time-athletic-club"
+    }
+  },
+  {
+    "id": "dutch-bros-coffee",
+    "slug": "dutch-bros-coffee",
+    "name": "Dutch Bros Coffee",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2025-10",
+        "datePrecision": "month",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2026-05",
+      "precision": "month",
+      "confidence": "low",
+      "label": "Est. completion May 2026",
+      "sourceIds": [
+        "legacy-tracker-2026-02"
+      ]
+    },
+    "location": {
+      "address": "5215 Hamlin Groves Trail",
+      "description": "5215 Hamlin Groves Trail",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 950,
+      "unit": "sqft",
+      "raw": "950 sq ft"
+    },
+    "developer": "Boyd Development",
+    "summary": "Drive-thru coffee shop serving coffee, matcha, energy drinks, and seasonal beverages.",
+    "description": "Drive-thru coffee shop serving coffee, matcha, energy drinks, and seasonal beverages.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-10",
+        "precision": "month",
+        "title": "Construction underway",
+        "detail": "Construction started Oct 2025 — Est. completion May 2026",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      },
+      {
+        "date": "2025-10",
+        "precision": "month",
+        "title": "Expected groundbreaking",
+        "detail": "Construction started Oct 2025",
+        "kind": "other",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "scheduled-opening-passed"
+      ],
+      "legacyId": "dutch-bros-coffee"
+    }
+  },
+  {
+    "id": "tiki-docks-restaurant",
+    "slug": "tiki-docks-restaurant",
+    "name": "Tiki Docks Restaurant",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Adjacent to PopStroke, Hamlin Town Center lakefront",
+      "lat": 28.4248,
+      "lng": -81.6135,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "TBD",
+    "summary": "Waterfront dining concept replacing the previously planned Don the Beachcomber location, next to PopStroke on Lake Hancock.",
+    "description": "Waterfront dining concept replacing the previously planned Don the Beachcomber location, next to PopStroke on Lake Hancock.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans proposed",
+        "detail": "Expected to break ground early 2026",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      },
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Expected groundbreaking",
+        "detail": "early 2026",
+        "kind": "other",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "tiki-docks-restaurant"
+    }
+  },
+  {
+    "id": "chipotle-mexican-grill-horizon-west",
+    "slug": "chipotle-mexican-grill-horizon-west",
+    "name": "Chipotle Mexican Grill (Horizon West)",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "open",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "open",
+        "date": "2025-07-08",
+        "datePrecision": "day",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "address": "13354 Hartzog Road, Winter Garden",
+      "description": "13354 Hartzog Road, Winter Garden",
+      "lat": 28.4185,
+      "lng": -81.6335,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Chipotle",
+    "summary": "Fast-casual restaurant with Chipotlane drive-thru pick-up lane — the first Chipotlane in Winter Garden.",
+    "description": "Fast-casual restaurant with Chipotlane drive-thru pick-up lane — the first Chipotlane in Winter Garden. Open 10:45 a.m. to 10 p.m. daily.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-07-08",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "Opened Jul 8, 2025",
+        "kind": "opening",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "chipotle-mexican-grill-horizon-west"
+    }
+  },
+  {
+    "id": "outback-steakhouse",
+    "slug": "outback-steakhouse",
+    "name": "Outback Steakhouse",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2026-03-03",
+      "precision": "day",
+      "confidence": "medium",
+      "label": "Grand opening Mar 3, 2026 at 3 PM",
+      "sourceIds": [
+        "legacy-tracker-2026-02"
+      ]
+    },
+    "location": {
+      "address": "16323 New Independence Parkway",
+      "description": "16323 New Independence Parkway (across from Starbucks)",
+      "lat": 28.4325,
+      "lng": -81.6195,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 4900,
+      "unit": "sqft",
+      "raw": "4,900 sq ft"
+    },
+    "developer": "Bloomin' Brands",
+    "summary": "Full-service steakhouse restaurant.",
+    "description": "Full-service steakhouse restaurant. Building is complete. Grand opening scheduled for Tuesday, March 3, 2026 at 3:00 PM. Menu includes Bloomin' Onion, hand-cut steaks, and fresh seafood.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Built — Grand opening Mar 3, 2026 at 3 PM",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "scheduled-opening-passed"
+      ],
+      "legacyId": "outback-steakhouse"
+    }
+  },
+  {
+    "id": "abc-fine-wine-and-spirits",
+    "slug": "abc-fine-wine-and-spirits",
+    "name": "ABC Fine Wine & Spirits",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "NW corner of Avalon Rd & New Independence Pkwy",
+      "lat": 28.436,
+      "lng": -81.633,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "TBD",
+    "summary": "Liquor store located adjacent to the proposed HCA freestanding ER.",
+    "description": "Liquor store located adjacent to the proposed HCA freestanding ER.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans proposed",
+        "detail": "Plans proposed",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "abc-fine-wine-and-spirits"
+    }
+  },
+  {
+    "id": "cvs-pharmacy",
+    "slug": "cvs-pharmacy",
+    "name": "CVS Pharmacy",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Healthcare / Pharmacy",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Horizon West / Hamlin area",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 13163,
+      "unit": "sqft",
+      "raw": "13,163 sq ft"
+    },
+    "developer": "CVS Health",
+    "summary": "Freestanding pharmacy with 44 parking spaces.",
+    "description": "Freestanding pharmacy with 44 parking spaces.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans filed",
+        "detail": "Pre-application submitted to Orange County",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "cvs-pharmacy"
+    }
+  },
+  {
+    "id": "hca-freestanding-emergency-room",
+    "slug": "hca-freestanding-emergency-room",
+    "name": "HCA Freestanding Emergency Room",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Healthcare / Pharmacy",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Near Avalon Rd & New Independence Pkwy",
+      "lat": 28.436,
+      "lng": -81.633,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "HCA Healthcare",
+    "summary": "Standalone emergency room facility to serve the growing Horizon West community.",
+    "description": "Standalone emergency room facility to serve the growing Horizon West community.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans filed",
+        "detail": "Permits filed with Orange County",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "hca-freestanding-emergency-room"
+    }
+  },
+  {
+    "id": "9-188-sf-commercial-building",
+    "slug": "9-188-sf-commercial-building",
+    "name": "9,188 SF Commercial Building",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "address": "15903 New Independence Pkwy",
+      "description": "15903 New Independence Pkwy (near Hamlin Groves Trail)",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 9188,
+      "unit": "sqft",
+      "raw": "9,188 sq ft"
+    },
+    "developer": "TBD",
+    "summary": "General commercial building at the northeast corner of New Independence Parkway and Hamlin Groves Trail.",
+    "description": "General commercial building at the northeast corner of New Independence Parkway and Hamlin Groves Trail.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans filed",
+        "detail": "Development plan submitted",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "9-188-sf-commercial-building"
+    }
+  },
+  {
+    "id": "vystar-credit-union-hamlin-branch",
+    "slug": "vystar-credit-union-hamlin-branch",
+    "name": "VyStar Credit Union (Hamlin Branch)",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Financial Services",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2026-02",
+      "precision": "estimate",
+      "confidence": "low",
+      "label": "early 2026",
+      "sourceIds": [
+        "legacy-tracker-2026-02"
+      ]
+    },
+    "location": {
+      "address": "5026 Hamlin Groves Trail",
+      "description": "5026 Hamlin Groves Trail",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "VyStar Credit Union",
+    "summary": "New credit union branch.",
+    "description": "New credit union branch. Construction underway with an early 2026 opening anticipated.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Under construction — Opening early 2026",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "scheduled-opening-passed"
+      ],
+      "legacyId": "vystar-credit-union-hamlin-branch"
+    }
+  },
+  {
+    "id": "goddard-school-daycare",
+    "slug": "goddard-school-daycare",
+    "name": "Goddard School (Daycare)",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Education",
+    "status": "approved",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "approved",
+        "date": "2025-03",
+        "datePrecision": "month",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "West of Avalon Rd, north of Porter Rd (Silverleaf area)",
+      "lat": 28.436,
+      "lng": -81.633,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 18128,
+      "unit": "sqft",
+      "raw": "18,128 sq ft"
+    },
+    "developer": "Hamlin Partners at Silverleaf, LLC",
+    "summary": "Childcare/daycare facility with paved parking and stormwater infrastructure.",
+    "description": "Childcare/daycare facility with paved parking and stormwater infrastructure.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-03",
+        "precision": "month",
+        "title": "Plans approved",
+        "detail": "Stormwater permit issued Mar 2025",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "goddard-school-daycare"
+    }
+  },
+  {
+    "id": "windermere-prep-school-k-5-campus",
+    "slug": "windermere-prep-school-k-5-campus",
+    "name": "Windermere Prep School (K-5 Campus)",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Education",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Hamlin area",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Windermere Preparatory School",
+    "summary": "New K-5 elementary school campus to serve the growing Hamlin community.",
+    "description": "New K-5 elementary school campus to serve the growing Hamlin community.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans proposed",
+        "detail": "Pre-application request submitted",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "windermere-prep-school-k-5-campus"
+    }
+  },
+  {
+    "id": "lake-hancock-waterfront-boardwalk",
+    "slug": "lake-hancock-waterfront-boardwalk",
+    "name": "Lake Hancock Waterfront Boardwalk",
+    "aliases": [],
+    "type": "infrastructure",
+    "category": "Public Space",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "South of PopStroke along Lake Hancock",
+      "lat": 28.4248,
+      "lng": -81.6135,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Boyd Development",
+    "summary": "Waterfront boardwalk with seating, lounge areas, and a connecting pocket park.",
+    "description": "Waterfront boardwalk with seating, lounge areas, and a connecting pocket park. Will be adjacent to future retail and restaurant spaces.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans proposed",
+        "detail": "In planning",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "lake-hancock-waterfront-boardwalk"
+    }
+  },
+  {
+    "id": "tropical-smoothie-cafe",
+    "slug": "tropical-smoothie-cafe",
+    "name": "Tropical Smoothie Cafe",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Corner of Hamlin Groves Trail & Calamondin Dr",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 1400,
+      "unit": "sqft",
+      "raw": "1,400 sq ft"
+    },
+    "developer": "Franchise",
+    "summary": "First Tropical Smoothie Cafe in Horizon West.",
+    "description": "First Tropical Smoothie Cafe in Horizon West. 1,400 sq ft with drive-thru, outdoor seating, and parking. Located adjacent to Domino's, The NOW Massage, and Shisha Karate.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Under construction — Opening date TBD",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "timeline-unknown"
+      ],
+      "legacyId": "tropical-smoothie-cafe"
+    }
+  },
+  {
+    "id": "swig-dirty-soda",
+    "slug": "swig-dirty-soda",
+    "name": "Swig Dirty Soda",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "New Independence Pkwy & Hamlin Groves Trail (near Urban Air)",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 1000,
+      "unit": "sqft",
+      "raw": "1,000 sq ft"
+    },
+    "developer": "Franchise (Chase Herbert)",
+    "summary": "Drive-thru 'dirty soda' shop serving custom sodas, cookies, and drinks.",
+    "description": "Drive-thru 'dirty soda' shop serving custom sodas, cookies, and drinks. 1,000 sq ft with drive-thru and walk-up window. First Florida location opened in Clermont.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans filed",
+        "detail": "In permitting — Opening date TBD",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "timeline-unknown"
+      ],
+      "legacyId": "swig-dirty-soda"
+    }
+  },
+  {
+    "id": "bank-of-america-hamlin-branch",
+    "slug": "bank-of-america-hamlin-branch",
+    "name": "Bank of America (Hamlin Branch)",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Financial Services",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Hamlin Town Center area",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Bank of America",
+    "summary": "New Bank of America branch with drive-thru, joining Wells Fargo and VyStar as financial institutions in the Hamlin area.",
+    "description": "New Bank of America branch with drive-thru, joining Wells Fargo and VyStar as financial institutions in the Hamlin area.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans filed",
+        "detail": "Permits filed — Drive-thru branch planned",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "bank-of-america-hamlin-branch"
+    }
+  },
+  {
+    "id": "filigree-coffee",
+    "slug": "filigree-coffee",
+    "name": "Filigree Coffee",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Hamlin Town Center (former Chick'nCone space)",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Filigree Coffee",
+    "summary": "Locally owned Horizon West coffee shop opening a permanent storefront in Hamlin, taking over the former Chick'nCone space.",
+    "description": "Locally owned Horizon West coffee shop opening a permanent storefront in Hamlin, taking over the former Chick'nCone space.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Preparing to open — Buildout underway",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "filigree-coffee"
+    }
+  },
+  {
+    "id": "wawa",
+    "slug": "wawa",
+    "name": "Wawa",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "approved",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "approved",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Avalon Rd & New Independence Pkwy",
+      "lat": 28.436,
+      "lng": -81.633,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Wawa Inc.",
+    "summary": "Gas station and convenience store.",
+    "description": "Gas station and convenience store. Site clearing has been approved at Avalon Road and New Independence Parkway.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans approved",
+        "detail": "Site clearing approved — Opening date TBD",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "timeline-unknown"
+      ],
+      "legacyId": "wawa"
+    }
+  },
+  {
+    "id": "sweetwater-car-wash",
+    "slug": "sweetwater-car-wash",
+    "name": "Sweetwater Car Wash",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Retail",
+    "status": "filed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "filed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Hamlin area",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Sweetwater Car Wash At Hamlin, LLC",
+    "summary": "Car wash facility planned for the Hamlin area.",
+    "description": "Car wash facility planned for the Hamlin area. LLC registered May 2023.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans filed",
+        "detail": "Entity registered — Permits in process",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "sweetwater-car-wash"
+    }
+  },
+  {
+    "id": "popstroke-tiger-woods",
+    "slug": "popstroke-tiger-woods",
+    "name": "PopStroke (Tiger Woods)",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Entertainment",
+    "status": "open",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "open",
+        "date": "2025-08-06",
+        "datePrecision": "day",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "address": "5487 Hamlin Groves Trail",
+      "description": "5487 Hamlin Groves Trail",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 1.75,
+      "unit": "acres",
+      "raw": "1.75 acres"
+    },
+    "developer": "PopStroke / Boyd Development",
+    "summary": "Two 18-hole putting courses with PopStroke's most advanced technology.",
+    "description": "Two 18-hole putting courses with PopStroke's most advanced technology. Features BarTenders restaurant, beer garden, bars, outdoor gaming patio, and enclosed playground. Hours: Sun–Wed 9a–11p, Thu–Sat 9a–midnight.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-08-06",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "Opened Aug 6, 2025",
+        "kind": "opening",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "popstroke-tiger-woods"
+    }
+  },
+  {
+    "id": "agave-bandido",
+    "slug": "agave-bandido",
+    "name": "Agave Bandido",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Restaurant / Cafe",
+    "status": "open",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "open",
+        "date": "2025-06-09",
+        "datePrecision": "day",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "address": "5365 Hamlin Groves Trail",
+      "description": "5365 Hamlin Groves Trail",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 11000,
+      "unit": "sqft",
+      "raw": "11,000 sq ft (incl. patio)"
+    },
+    "developer": "Agave Bandido",
+    "summary": "Upscale Mexican-inspired restaurant and tequila bar.",
+    "description": "Upscale Mexican-inspired restaurant and tequila bar. Largest Agave Bandido location at 11,000 sq ft. Features hidden speak-tiki bar 'Maya' (separate reservations). Hours: Mon–Thu 4p–midnight, Fri–Sat 4p–2a, Sun 4–10p.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025-06-09",
+        "precision": "day",
+        "title": "Opened",
+        "detail": "Opened Jun 9, 2025",
+        "kind": "opening",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "agave-bandido"
+    }
+  },
+  {
+    "id": "anytime-fitness",
+    "slug": "anytime-fitness",
+    "name": "Anytime Fitness",
+    "aliases": [],
+    "type": "commercial",
+    "category": "Fitness / Recreation",
+    "status": "open",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "open",
+        "date": "2025",
+        "datePrecision": "year",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "address": "5724 Hamlin Groves Trail",
+      "description": "5724 Hamlin Groves Trail",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "TBD",
+    "summary": "24/7 fitness center.",
+    "description": "24/7 fitness center.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2025",
+        "precision": "year",
+        "title": "Opened",
+        "detail": "Opened 2025",
+        "kind": "opening",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "anytime-fitness"
+    }
+  },
+  {
+    "id": "silverleaf-master-planned-community",
+    "slug": "silverleaf-master-planned-community",
+    "name": "Silverleaf (Master-Planned Community)",
+    "aliases": [],
+    "type": "residential",
+    "category": "Residential Community",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Near Avalon Rd, Horizon West",
+      "lat": 28.436,
+      "lng": -81.633,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Meritage Homes & others",
+    "summary": "Major mixed-use community with Silverleaf Reserve, Silverleaf Oaks, and Silverleaf Reserve Bungalows.",
+    "description": "Major mixed-use community with Silverleaf Reserve, Silverleaf Oaks, and Silverleaf Reserve Bungalows. Resort-style pool, cabana, playground. No CDD.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Active construction — phased through 2027+",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "silverleaf-master-planned-community"
+    }
+  },
+  {
+    "id": "hamlin-meadows",
+    "slug": "hamlin-meadows",
+    "name": "Hamlin Meadows",
+    "aliases": [],
+    "type": "residential",
+    "category": "Residential Community",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Horizon West / Hamlin area",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Dream Finders Homes",
+    "summary": "Rear-load townhomes and single-family homes on various lot sizes.",
+    "description": "Rear-load townhomes and single-family homes on various lot sizes.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Active construction",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "hamlin-meadows"
+    }
+  },
+  {
+    "id": "parkview-at-hamlin",
+    "slug": "parkview-at-hamlin",
+    "name": "Parkview at Hamlin",
+    "aliases": [],
+    "type": "residential",
+    "category": "Residential Community",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Walking distance to Hamlin Town Center",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Ashton Woods / DRB Homes",
+    "summary": "Low-maintenance three-story townhomes within walking distance to shopping, dining, and entertainment.",
+    "description": "Low-maintenance three-story townhomes within walking distance to shopping, dining, and entertainment.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Active construction",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "parkview-at-hamlin"
+    }
+  },
+  {
+    "id": "westhaven-at-ovation-toll-brothers",
+    "slug": "westhaven-at-ovation-toll-brothers",
+    "name": "Westhaven at Ovation (Toll Brothers)",
+    "aliases": [],
+    "type": "residential",
+    "category": "Residential Community",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2026-07",
+      "precision": "estimate",
+      "confidence": "low",
+      "label": "Summer 2026",
+      "sourceIds": [
+        "legacy-tracker-2026-02"
+      ]
+    },
+    "location": {
+      "description": "Horizon West / Winter Garden",
+      "lat": 28.4485,
+      "lng": -81.6355,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Toll Brothers",
+    "summary": "Luxury single-family homes by Toll Brothers.",
+    "description": "Luxury single-family homes by Toll Brothers. Multiple units with estimated completion through July 2026.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Active — Est. completion Summer 2026",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "scheduled-opening-passed"
+      ],
+      "legacyId": "westhaven-at-ovation-toll-brothers"
+    }
+  },
+  {
+    "id": "113-multi-family-units-hamlin-pd",
+    "slug": "113-multi-family-units-hamlin-pd",
+    "name": "113 Multi-Family Units (Hamlin PD)",
+    "aliases": [],
+    "type": "residential",
+    "category": "Residential Community",
+    "status": "approved",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "approved",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Hamlin Planned Development",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 113,
+      "unit": "units",
+      "raw": "113 units"
+    },
+    "developer": "TBD",
+    "summary": "Multi-family residential development within the Hamlin Planned Development area.",
+    "description": "Multi-family residential development within the Hamlin Planned Development area.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans approved",
+        "detail": "Approved by Orange County BCC",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "113-multi-family-units-hamlin-pd"
+    }
+  },
+  {
+    "id": "hamlin-30-mixed-use",
+    "slug": "hamlin-30-mixed-use",
+    "name": "Hamlin 30 Mixed-Use",
+    "aliases": [],
+    "type": "mixed",
+    "category": "Mixed-Use",
+    "status": "approved",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "approved",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Schofield Road, Hamlin",
+      "lat": 28.4262,
+      "lng": -81.6215,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 100,
+      "unit": "units",
+      "raw": "100 units + 170,000 sq ft commercial + 26 hotel rooms"
+    },
+    "developer": "Boyd Development",
+    "summary": "Mixed-use project with multifamily residential, commercial retail/office space, and boutique hotel rooms.",
+    "description": "Mixed-use project with multifamily residential, commercial retail/office space, and boutique hotel rooms.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans approved",
+        "detail": "Approved",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "hamlin-30-mixed-use"
+    }
+  },
+  {
+    "id": "horizon-west-regional-park-phase-1a",
+    "slug": "horizon-west-regional-park-phase-1a",
+    "name": "Horizon West Regional Park (Phase 1A)",
+    "aliases": [],
+    "type": "infrastructure",
+    "category": "Public Space",
+    "status": "open",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "open",
+        "date": "2026-01",
+        "datePrecision": "month",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "address": "4715 Hamlin Groves Trail",
+      "description": "4715 Hamlin Groves Trail",
+      "lat": 28.4232,
+      "lng": -81.6205,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 200,
+      "unit": "acres",
+      "raw": "200 acres (full park)"
+    },
+    "developer": "Orange County",
+    "summary": "Phase 1A is NOW OPEN.",
+    "description": "Phase 1A is NOW OPEN. Includes playground, restrooms, pavilions, and ~6 miles of unpaved hiking/horseback trails. Open daily 8a–6p. Phase 1B ($7M budget) coming next with splash pad, farmer's market, kayak/canoe launch.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-01",
+        "precision": "month",
+        "title": "Opened",
+        "detail": "Phase 1A opened Jan 2026 — Grand opening Feb 16, 2026",
+        "kind": "opening",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence"
+      ],
+      "legacyId": "horizon-west-regional-park-phase-1a"
+    }
+  },
+  {
+    "id": "horizon-west-library",
+    "slug": "horizon-west-library",
+    "name": "Horizon West Library",
+    "aliases": [],
+    "type": "infrastructure",
+    "category": "Public Facility",
+    "status": "construction",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "construction",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "expectedCompletion": {
+      "date": "2026-02",
+      "precision": "estimate",
+      "confidence": "low",
+      "label": "early 2026",
+      "sourceIds": [
+        "legacy-tracker-2026-02"
+      ]
+    },
+    "location": {
+      "description": "Next to Regional Park",
+      "lat": 28.4165,
+      "lng": -81.6295,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "size": {
+      "value": 20000,
+      "unit": "sqft",
+      "raw": "20,000 sq ft"
+    },
+    "developer": "Orange County Library System",
+    "summary": "Study rooms, media lab, meeting rooms, outdoor performance stage with open lawn seating.",
+    "description": "Study rooms, media lab, meeting rooms, outdoor performance stage with open lawn seating.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Construction underway",
+        "detail": "Under construction — Expected opening early 2026",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "scheduled-opening-passed"
+      ],
+      "legacyId": "horizon-west-library"
+    }
+  },
+  {
+    "id": "new-independence-pkwy-extension",
+    "slug": "new-independence-pkwy-extension",
+    "name": "New Independence Pkwy Extension",
+    "aliases": [],
+    "type": "infrastructure",
+    "category": "Transportation",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Connecting Orange & Lake Counties",
+      "lat": 28.4395,
+      "lng": -81.6575,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "Orange County / FDOT",
+    "summary": "Road extension to improve connectivity between the Hamlin area and western communities.",
+    "description": "Road extension to improve connectivity between the Hamlin area and western communities.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans proposed",
+        "detail": "Coming soon",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "timeline-unknown"
+      ],
+      "legacyId": "new-independence-pkwy-extension"
+    }
+  },
+  {
+    "id": "sr-516-toll-road",
+    "slug": "sr-516-toll-road",
+    "name": "SR-516 Toll Road",
+    "aliases": [],
+    "type": "infrastructure",
+    "category": "Transportation",
+    "status": "proposed",
+    "statusConfidence": "medium",
+    "statusHistory": [
+      {
+        "status": "proposed",
+        "date": "2026-02",
+        "datePrecision": "estimate",
+        "note": "Stage confirmed in Feb 2026 snapshot; start date not stated",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "location": {
+      "description": "Orange to Lake County corridor",
+      "lat": 28.4395,
+      "lng": -81.6575,
+      "geocodeConfidence": "low",
+      "geocodedFrom": "legacy-anchor"
+    },
+    "developer": "FDOT / CFX",
+    "summary": "New toll road to ease travel between Orange and Lake Counties, benefiting Hamlin-area commuters.",
+    "description": "New toll road to ease travel between Orange and Lake Counties, benefiting Hamlin-area commuters.",
+    "permits": [],
+    "milestones": [
+      {
+        "date": "2026-02",
+        "precision": "estimate",
+        "title": "Plans proposed",
+        "detail": "Coming soon",
+        "kind": "status",
+        "sourceIds": [
+          "legacy-tracker-2026-02"
+        ]
+      }
+    ],
+    "images": [],
+    "sources": [
+      {
+        "id": "legacy-tracker-2026-02",
+        "title": "Original Hamlin Area Development Tracker (Feb 2026 snapshot)",
+        "publisher": "Hamlin Development Tracker",
+        "kind": "legacy",
+        "retrievedAt": "2026-02-25T15:30:00.000Z",
+        "publishedAt": "2026-02-25"
+      }
+    ],
+    "meta": {
+      "createdAt": "2026-02-25T15:30:00.000Z",
+      "updatedAt": "2026-09-15T19:11:41.098Z",
+      "lastVerifiedAt": "2026-02-25T15:30:00.000Z",
+      "confidence": "medium",
+      "archived": false,
+      "needsReview": [
+        "geocode-low-confidence",
+        "timeline-unknown"
+      ],
+      "legacyId": "sr-516-toll-road"
+    }
+  }
+]

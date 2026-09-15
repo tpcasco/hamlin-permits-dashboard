@@ -1,0 +1,39 @@
+{
+  "name": "hamlin-development-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run",
+    "refresh": "tsx scripts/refresh.ts",
+    "migrate:legacy": "tsx scripts/migrate-legacy.ts",
+    "validate": "tsx scripts/validate.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "@astrojs/preact": "^6.0.5",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.2",
+    "cheerio": "^1.2.0",
+    "date-fns": "^4.4.0",
+    "ics": "^3.12.0",
+    "mapbox-gl": "^3.30.0",
+    "preact": "^10.29.8",
+    "sharp": "^0.35.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/mapbox-gl": "^3.4.1",
+    "@types/node": "^26.6.0",
+    "playwright": "^1.63.0",
+    "tsx": "^4.23.13",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.1"
+  }
+}

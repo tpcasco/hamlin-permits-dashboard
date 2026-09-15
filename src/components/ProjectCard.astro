@@ -1,0 +1,42 @@
+---
+import type { Project } from '@/schemas/project';
+import StatusChip from './StatusChip.astro';
+import { categoryMeta, daysInCurrentStage, heroImage } from '@/lib/projects';
+import { formatPrecise, humanDuration } from '@/lib/dates';
+interface Props { project: Project; compact?: boolean }
+const { project: p, compact = false } = Astro.props;
+const hero = heroImage(p);
+const meta = categoryMeta(p.category);
+const days = daysInCurrentStage(p);
+const exp = p.expectedCompletion;
+---
+<a class="pc card" href={`/projects/${p.slug}`} data-status={p.status}>
+  <div class="pc-media" style={`--c:${meta.color}`}>
+    {hero ? <img src={`/images/projects/${p.slug}/${hero.file}`} alt={hero.alt} loading="lazy" width="640" height="360" /> : <div class="pc-placeholder" aria-hidden="true"><span>{meta.icon}</span></div>}
+    {hero?.kind === 'ai-concept' && <span class="ai-badge">AI concept</span>}
+    <span class="pc-chip"><StatusChip status={p.status} /></span>
+  </div>
+  <div class="pc-body">
+    <div class="eyebrow">{meta.icon} {p.category}</div>
+    <h3 class="pc-title">{p.name}</h3>
+    {!compact && <p class="pc-sum muted small">{p.summary}</p>}
+    <div class="pc-meta small">
+      {p.status === 'open' ? <span>Open now</span> : exp ? <span><strong>Opening</strong> {formatPrecise(exp.date, exp.precision, exp.label)}</span> : <span class="muted">Opening date unknown</span>}
+      {days != null && days > 0 && <span class="muted">· {humanDuration(days)} in stage</span>}
+    </div>
+    <div class="pc-loc small muted">📍 {p.location.description}</div>
+  </div>
+</a>
+<style>
+  .pc { display: flex; flex-direction: column; overflow: hidden; color: var(--text); text-decoration: none; transition: transform .15s, box-shadow .15s; }
+  .pc:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 12px 28px -14px rgba(16,24,40,.25); }
+  .pc-media { position: relative; aspect-ratio: 16/9; background: color-mix(in srgb, var(--c) 14%, var(--surface-2)); }
+  .pc-media img { width: 100%; height: 100%; object-fit: cover; }
+  .pc-placeholder { width: 100%; height: 100%; display: grid; place-items: center; font-size: 2.4rem; opacity: .8; }
+  .pc-chip { position: absolute; right: 10px; top: 10px; }
+  .pc-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; }
+  .pc-title { margin: 2px 0 0; font-size: 1.05rem; }
+  .pc-sum { margin: 2px 0 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .pc-meta { display: flex; flex-wrap: wrap; gap: 4px; }
+  .pc-loc { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+</style>

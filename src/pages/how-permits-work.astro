@@ -1,0 +1,42 @@
+---
+import Base from '@/layouts/Base.astro';
+import { STATUS_LABEL, STATUS_HELP } from '@/lib/projects';
+import { STAGE_ORDER } from '@/schemas/project';
+---
+<Base title="How permits work" description="How a Hamlin project goes from an idea to an open door, and where to check the official records yourself.">
+  <div class="section prose">
+    <h1>How a project gets built in Hamlin</h1>
+    <p class="lead muted">Every project on this site moves through the same five stages. Here is what each one means, how long it usually takes, and where the paper trail lives.</p>
+
+    <h2>The five stages</h2>
+    <ol class="stages">
+      {STAGE_ORDER.map((s) => <li><span class="chip" data-status={s}>{STATUS_LABEL[s]}</span><p>{STATUS_HELP[s]}</p></li>)}
+    </ol>
+
+    <h2>Two governments, two record systems</h2>
+    <p>Hamlin straddles the <strong>City of Winter Garden</strong> and <strong>unincorporated Orange County</strong>. Which one a project belongs to decides where its permits are filed.</p>
+    <ul>
+      <li><strong>Orange County</strong> handles most of Horizon West, including Hamlin Town Center. Building permits and inspections are in <a href="https://fasttrack.ocfl.net/OnlineServices/" rel="noopener">Fast Track Online Services</a> (search "Permits, All Types" by address). Bigger projects first go through the <a href="https://www.orangecountyfl.net/OpenGovernment/BoardsAndSpecialDistricts/DevelopmentReviewCommittee.aspx" rel="noopener">Development Review Committee</a>, which meets two Wednesdays a month and posts its agenda the Friday before.</li>
+      <li><strong>City of Winter Garden</strong> permits are searchable in <a href="https://bsaonline.com/Home/MunicipalityHome?uid=3123" rel="noopener">BS&amp;A Online</a> by address or permit number. The city's <a href="https://www.cwgdn.com/291/Building" rel="noopener">Building Division page</a> explains the process.</li>
+    </ul>
+
+    <h2>Where the news comes from</h2>
+    <ul>
+      <li><a href="https://www.horizonwestinfo.com/category/town-center/hamlin/" rel="noopener">Horizon West News &amp; Info</a>: the most detailed local coverage of what is coming to Hamlin.</li>
+      <li><a href="https://horizonwesthappenings.com/" rel="noopener">Horizon West Happenings</a> and <a href="https://www.horizonwestmagazine.com/" rel="noopener">Horizon West Magazine</a>.</li>
+      <li><a href="https://www.orangeobserver.com/" rel="noopener">West Orange Times &amp; Observer</a>.</li>
+      <li><a href="https://www.growthspotter.com/" rel="noopener">GrowthSpotter</a> (subscription) for land deals and filings.</li>
+      <li><a href="https://hamlinfl.com/" rel="noopener">HamlinFL.com</a>, the developer's official site.</li>
+    </ul>
+
+    <h2>How this site stays current</h2>
+    <p>Every night an automated job reads the public permit portals, county GIS data, and local news, merges anything new into each project's record with its source, and republishes the site. Nothing is deleted automatically; a project only advances when a source says so, and anything uncertain is flagged rather than guessed. Every project page shows its sources and a "last verified" date. If something is wrong, use the "Report an error" link on that page.</p>
+  </div>
+</Base>
+<style>
+  .lead { font-size: 1.05rem; }
+  .stages { list-style: none; padding: 0; display: grid; gap: 10px; }
+  .stages li { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: start; }
+  .stages p { margin: 0; }
+  @media (max-width: 560px) { .stages li { grid-template-columns: 1fr; gap: 4px; } }
+</style>

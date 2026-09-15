@@ -1,0 +1,211 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import StatusChip from '@/components/StatusChip.astro';
+import StatusStepper from '@/components/StatusStepper.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { categoryMeta, heroImage, nearby, TYPE_LABEL, STATUS_LABEL } from '@/lib/projects';
+import { formatPrecise, relativeLabel, formatDateTime, daysFromNow } from '@/lib/dates';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('projects');
+  const all = entries.map((e) => e.data);
+  return all.map((p) => ({ params: { slug: p.slug }, props: { project: p, all } }));
+}
+const { project: p, all } = Astro.props;
+const meta = categoryMeta(p.category);
+const hero = heroImage(p);
+const exp = p.expectedCompletion;
+const expDays = exp ? daysFromNow(exp.date) : null;
+const openingPassed = exp && expDays !== null && expDays < 0 && p.status !== 'open';
+const near = nearby(p, all);
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const shareUrl = `${site}/projects/${p.slug}`;
+const timelineEvents = [...p.milestones].sort((a, b) => b.date.localeCompare(a.date));
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': p.type === 'commercial' ? 'LocalBusiness' : 'Place', name: p.name, description: p.summary, url: shareUrl,
+  ...(p.location.lat && { geo: { '@type': 'GeoCoordinates', latitude: p.location.lat, longitude: p.location.lng } }),
+  ...(p.business?.website && { sameAs: p.business.website }),
+};
+const stale = daysFromNow(p.meta.lastVerifiedAt.slice(0, 10)) < -60;
+---
+<Base title={p.name} description={p.summary} ogImage={hero ? `${site}/images/projects/${p.slug}/${hero.file}` : undefined} jsonLd={jsonLd}>
+  <article class="proj">
+    <nav class="crumbs small muted" aria-label="Breadcrumb"><a href="/explore">Explore</a> › <a href={`/explore?category=${encodeURIComponent(p.category)}`}>{p.category}</a></nav>
+    <header class="head">
+      <div>
+        <div class="eyebrow">{meta.icon} {p.category} · {TYPE_LABEL[p.type]}</div>
+        <h1>{p.name}</h1>
+        <p class="lead muted">{p.summary}</p>
+        <div class="badges"><StatusChip status={p.status} /> {p.size && <span class="chip">{p.size.raw}</span>} {p.developer && <span class="chip">{p.developer}</span>}</div>
+      </div>
+      <button class="btn share" data-share data-title={p.name} data-url={shareUrl}>Share</button>
+    </header>
+
+    {(p.meta.needsReview.includes('scheduled-opening-passed') || openingPassed) && (
+      <p class="notice">The last reported opening date ({exp && formatPrecise(exp.date, exp.precision, exp.label)}) has passed and we have not confirmed whether it opened. The nightly check will update this page when a source confirms it.</p>
+    )}
+
+    <div class="gallery card" id="gallery">
+      {hero ? (
+        <figure class="hero-fig">
+          <img src={`/images/projects/${p.slug}/${hero.file}`} alt={hero.alt} width="1280" height="720" />
+          {hero.kind === 'ai-concept' && <span class="ai-badge">AI concept · not an official rendering</span>}
+          {hero.credit && <figcaption class="small muted">{hero.kind === 'ai-concept' ? 'AI-generated concept image based on public descriptions. ' : ''}Credit: {hero.sourceUrl ? <a href={hero.sourceUrl} rel="noopener">{hero.credit}</a> : hero.credit}</figcaption>}
+        </figure>
+      ) : (
+        <div class="hero-empty" style={`--c:${meta.color}`}><span aria-hidden="true">{meta.icon}</span><p class="small muted">No rendering yet. One will appear here when the nightly update finds an official image or generates a labeled concept.</p></div>
+      )}
+      {p.images.length > 1 && (
+        <div class="thumbs">
+          {p.images.filter((i) => i !== hero).map((i) => (
+            <a class="thumb" href={`/images/projects/${p.slug}/${i.file}`} target="_blank" rel="noopener"><img src={`/images/projects/${p.slug}/${i.file}`} alt={i.alt} loading="lazy" width="320" height="180" />{i.kind === 'ai-concept' && <span class="ai-badge">AI</span>}</a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="cols">
+      <div class="main-col">
+        <StatusStepper project={p} all={all} />
+
+        {p.status !== 'open' && (
+          <section class="card block opening">
+            <div>
+              <div class="eyebrow">Expected opening</div>
+              {exp ? (
+                <>
+                  <div class="big">{formatPrecise(exp.date, exp.precision, exp.label)}</div>
+                  <div class="small muted">{expDays !== null && expDays >= 0 ? relativeLabel(exp.date) : 'Awaiting confirmation'} · confidence: {exp.confidence}{exp.precision === 'estimate' ? ' · estimate' : ''}</div>
+                </>
+              ) : (
+                <div class="big muted">Not announced</div>
+              )}
+            </div>
+            {exp && expDays !== null && expDays >= 0 && <a class="btn" href={`/projects/${p.slug}.ics`} download>Add to calendar</a>}
+          </section>
+        )}
+
+        <section class="card block">
+          <h2>About this project</h2>
+          <p>{p.description}</p>
+          <dl class="facts">
+            <div><dt>Location</dt><dd>{p.location.address ? <>{p.location.address}<br /><span class="muted small">{p.location.description}</span></> : p.location.description}</dd></div>
+            {p.size && <div><dt>Size</dt><dd>{p.size.raw}</dd></div>}
+            {p.developer && <div><dt>Developer</dt><dd>{p.developer}</dd></div>}
+            {p.contractor && <div><dt>Contractor</dt><dd>{p.contractor}</dd></div>}
+            <div><dt>Status</dt><dd>{STATUS_LABEL[p.status]} <span class="muted small">(confidence: {p.statusConfidence})</span></dd></div>
+          </dl>
+        </section>
+
+        <section class="card block" id="mini-map">
+          <h2>Where it is</h2>
+          {p.location.lat && p.location.lng ? (
+            <>
+              <div class="minimap-slot" data-minimap data-lat={p.location.lat} data-lng={p.location.lng} data-name={p.name} data-status={p.status} data-confidence={p.location.geocodeConfidence ?? 'medium'} data-footprint={p.location.footprint ? JSON.stringify(p.location.footprint) : undefined}>
+                <slot name="minimap" />
+              </div>
+              <p class="small muted">{p.location.geocodeConfidence === 'low' ? 'Approximate location based on the written description; exact pin pending geocoding. ' : ''}<a href={`https://www.google.com/maps/dir/?api=1&destination=${p.location.lat},${p.location.lng}`} rel="noopener">Directions</a></p>
+            </>
+          ) : (
+            <p class="muted">Location not mapped yet.</p>
+          )}
+        </section>
+
+        {p.business && (p.business.offerings.length > 0 || p.business.website || p.business.hours || p.business.priceRange) && (
+          <section class="card block" id="business">
+            <h2>About the business</h2>
+            {p.business.brandDescription && p.business.fieldConfidence.brandDescription !== 'low' && <p>{p.business.brandDescription}</p>}
+            <dl class="facts">
+              {p.business.offerings.length > 0 && p.business.fieldConfidence.offerings !== 'low' && <div><dt>What they offer</dt><dd>{p.business.offerings.join(' · ')}</dd></div>}
+              {p.business.priceRange && p.business.fieldConfidence.priceRange !== 'low' && <div><dt>Price range</dt><dd>{p.business.priceRange}</dd></div>}
+              {p.business.menuHighlights?.length && p.business.fieldConfidence.menuHighlights !== 'low' ? <div><dt>Menu highlights</dt><dd>{p.business.menuHighlights.join(' · ')}</dd></div> : null}
+              {p.business.hours?.length && p.business.fieldConfidence.hours !== 'low' ? (
+                <div><dt>Hours</dt><dd><ul class="hours">{p.business.hours.map((h) => <li><span>{h.day}</span><span>{h.closed ? 'Closed' : `${h.open}–${h.close}`}</span></li>)}</ul></dd></div>
+              ) : null}
+              {p.business.website && <div><dt>Website</dt><dd><a href={p.business.website} rel="noopener">{p.business.website.replace(/^https?:\/\//, '')}</a></dd></div>}
+              {p.business.phone && <div><dt>Phone</dt><dd><a href={`tel:${p.business.phone}`}>{p.business.phone}</a></dd></div>}
+              {p.business.socials && <div><dt>Social</dt><dd>{Object.entries(p.business.socials).map(([k, v]) => <a href={v} rel="noopener" class="soc">{k}</a>)}</dd></div>}
+            </dl>
+            <p class="small muted">Business details come from the company's own site or listings. Fields we could not verify are hidden until confirmed.</p>
+          </section>
+        )}
+
+        {p.permits.length > 0 && (
+          <section class="card block" id="permits">
+            <h2>Permit history</h2>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Permit</th><th>Type</th><th>Filed</th><th>Issued</th><th>Status</th></tr></thead>
+              <tbody>{p.permits.map((pm) => <tr><td>{pm.url ? <a href={pm.url} rel="noopener">{pm.permitNumber}</a> : pm.permitNumber}<div class="small muted">{pm.jurisdiction === 'orange-county' ? 'Orange County' : 'Winter Garden'}</div></td><td>{pm.permitType}{pm.description && <div class="small muted">{pm.description}</div>}</td><td>{pm.filedDate ? formatPrecise(pm.filedDate, 'day') : '—'}</td><td>{pm.issuedDate ? formatPrecise(pm.issuedDate, 'day') : '—'}</td><td>{pm.status}</td></tr>)}</tbody>
+            </table></div>
+          </section>
+        )}
+
+        <section class="card block" id="history">
+          <h2>Timeline</h2>
+          <ol class="tl">
+            {timelineEvents.map((m) => <li><span class="tl-date">{formatPrecise(m.date, m.precision)}</span><div><strong>{m.title}</strong>{m.detail && <div class="small muted">{m.detail}</div>}</div></li>)}
+          </ol>
+        </section>
+      </div>
+
+      <aside class="side-col">
+        {near.length > 0 && (
+          <section class="block">
+            <h2>Nearby</h2>
+            <div class="near">{near.map(({ project, miles }) => <div><ProjectCard project={project} compact /><span class="small muted dist">{miles < 0.15 ? 'Next door' : `${miles.toFixed(1)} mi`}</span></div>)}</div>
+          </section>
+        )}
+        <section class="card block">
+          <h2>Sources</h2>
+          <ul class="srcs small">{p.sources.map((s) => <li>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}<div class="muted">{s.publisher}{s.publishedAt && ` · ${formatPrecise(s.publishedAt, 'day')}`}</div></li>)}</ul>
+          <p class="small muted">Last verified {formatDateTime(p.meta.lastVerifiedAt)}{stale ? ' · overdue for a check' : ''}.<br />Updated {formatDateTime(p.meta.updatedAt)}.</p>
+          <a class="btn small" href={`https://github.com/tpcasco/hamlin-permits-dashboard/issues/new?title=${encodeURIComponent(`Correction: ${p.name}`)}&body=${encodeURIComponent(`Project: ${shareUrl}\n\nWhat is wrong / what is the correct information? Please include a link if you have one.\n`)}`} rel="noopener">Report an error</a>
+        </section>
+      </aside>
+    </div>
+  </article>
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-share]').forEach((b) => b.addEventListener('click', async () => {
+      const data = { title: b.dataset.title!, url: b.dataset.url! };
+      if (navigator.share) { try { await navigator.share(data); } catch {} return; }
+      await navigator.clipboard.writeText(data.url); b.textContent = 'Link copied'; setTimeout(() => (b.textContent = 'Share'), 1500);
+    }));
+  </script>
+</Base>
+<style>
+  .proj { padding-top: 12px; }
+  .crumbs { margin-bottom: 8px; }
+  .head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 14px; }
+  .lead { font-size: 1.05rem; max-width: 70ch; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .gallery { overflow: hidden; margin-bottom: 16px; }
+  .hero-fig { margin: 0; position: relative; }
+  .hero-fig img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .hero-fig figcaption { padding: 8px 12px; }
+  .hero-empty { aspect-ratio: 21/9; display: grid; place-items: center; text-align: center; padding: 20px; background: color-mix(in srgb, var(--c) 12%, var(--surface-2)); }
+  .hero-empty span { font-size: 3rem; }
+  .thumbs { display: flex; gap: 8px; padding: 10px; overflow-x: auto; }
+  .thumb { position: relative; flex: 0 0 160px; border-radius: 8px; overflow: hidden; }
+  .cols { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .cols { grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); align-items: start; } }
+  .block { padding: 16px; margin-bottom: 16px; }
+  .opening { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-left: 5px solid var(--accent); }
+  .big { font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; }
+  .facts { display: grid; gap: 10px; margin: 0; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .facts dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 700; }
+  .facts dd { margin: 2px 0 0; }
+  .hours { list-style: none; margin: 0; padding: 0; }
+  .hours li { display: flex; justify-content: space-between; gap: 12px; text-transform: capitalize; }
+  .soc { margin-right: 10px; text-transform: capitalize; }
+  .minimap-slot { min-height: 240px; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface-2); }
+  .tl { list-style: none; margin: 0; padding: 0; }
+  .tl li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .tl li:last-child { border-bottom: 0; }
+  .tl-date { color: var(--text-2); font-weight: 600; font-size: .9rem; }
+  .near { display: grid; gap: 12px; }
+  .near > div { position: relative; }
+  .dist { position: absolute; right: 10px; bottom: 10px; background: var(--surface); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); }
+  .srcs { padding-left: 1rem; }
+  .srcs li { margin-bottom: 6px; }
+</style>

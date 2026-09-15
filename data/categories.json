@@ -1,0 +1,17 @@
+{
+  "Retail": { "icon": "🛍️", "color": "#2563eb", "typicalDays": { "filed-approved": 120, "approved-construction": 90, "construction-open": 300 } },
+  "Restaurant / Cafe": { "icon": "🍽️", "color": "#ea580c", "typicalDays": { "filed-approved": 90, "approved-construction": 60, "construction-open": 240 } },
+  "Fitness / Recreation": { "icon": "🏋️", "color": "#16a34a", "typicalDays": { "filed-approved": 150, "approved-construction": 120, "construction-open": 420 } },
+  "Healthcare / Pharmacy": { "icon": "🏥", "color": "#dc2626", "typicalDays": { "filed-approved": 120, "approved-construction": 90, "construction-open": 300 } },
+  "Financial Services": { "icon": "🏦", "color": "#0d9488", "typicalDays": { "filed-approved": 90, "approved-construction": 60, "construction-open": 240 } },
+  "Education": { "icon": "🎓", "color": "#7c3aed", "typicalDays": { "filed-approved": 150, "approved-construction": 120, "construction-open": 365 } },
+  "Entertainment": { "icon": "🎉", "color": "#db2777", "typicalDays": { "filed-approved": 120, "approved-construction": 90, "construction-open": 300 } },
+  "Residential Community": { "icon": "🏘️", "color": "#ca8a04", "typicalDays": { "filed-approved": 240, "approved-construction": 180, "construction-open": 730 } },
+  "Mixed-Use": { "icon": "🏙️", "color": "#4f46e5", "typicalDays": { "filed-approved": 240, "approved-construction": 180, "construction-open": 730 } },
+  "Public Facility": { "icon": "🏛️", "color": "#0891b2", "typicalDays": { "filed-approved": 180, "approved-construction": 120, "construction-open": 540 } },
+  "Public Space": { "icon": "🌳", "color": "#65a30d", "typicalDays": { "filed-approved": 180, "approved-construction": 120, "construction-open": 540 } },
+  "Transportation": { "icon": "🛣️", "color": "#6b7280", "typicalDays": { "filed-approved": 365, "approved-construction": 365, "construction-open": 1095 } },
+  "Hospitality": { "icon": "🏨", "color": "#b45309", "typicalDays": { "filed-approved": 150, "approved-construction": 120, "construction-open": 540 } },
+  "Automotive": { "icon": "🚗", "color": "#475569", "typicalDays": { "filed-approved": 90, "approved-construction": 60, "construction-open": 240 } },
+  "Other": { "icon": "📍", "color": "#64748b", "typicalDays": { "filed-approved": 120, "approved-construction": 90, "construction-open": 365 } }
+}
